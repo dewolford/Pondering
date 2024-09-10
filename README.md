@@ -1,10 +1,44 @@
 # Pondering
 ******* Pondering- Exquisite Artisan Hats ******
-A lovely store located in the heart of Duckville. Made for the local ducks at the pond to come purchase little hats. They even have collectors items sometimes. 
+A menu based program to control Pondering (A chain of Artisian Duck Hats) day to day operations. The CEO(user) of Pondering will be able to build and to destroy shops to manage the chain. They will also be able to check on individual shops and their details. They will be able to look into the customers in the stores as well.
 
 This program should 
+Driver
+- Be a while loop that allows user to add shops, destroy shops, display the current customers in a selected shop, access average time in shops, and exit the program. (menu based)
 
 A class for:
-- Ducks (quididle)
-- Frogs (ribbit)
-- Fish (guuuulp)
+1) Shop chains
+   -must be able to read from a file
+  Variables
+  - Pointer to an array of shops
+  Functions 
+  - contains a constructor and destructor
+  - build shop
+  - destroy shop
+  - get shop
+  - shop status
+
+2) Single shops
+  Varaibles
+  - Pointer to an array of ducks(customers)
+  - pointer to an array of ints(when the ducks arrived at the store)
+  - string shop name
+  - int shop capacity
+  - int current amount of customers
+  - where is the shop
+  Functions
+  - constructor
+  - destructor
+  - shop
+  - checkout (returns the time spent shopping)
+  - 
+3) Ducks(customers)
+  Variables
+  - String Name
+  - String type of duck (breed)
+  - String hat
+  - int age
+  Functions
+  -Constructor
+  -Destructor
+  - get data for the duck
