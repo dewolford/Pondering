@@ -31,7 +31,7 @@ A class for:
   - destructor
   - shop
   - checkout (returns the time spent shopping)
-  - 3) Ducks(customers)
+3) Ducks(customers)
   Variables
   - String Name
   - String type of duck (breed)
