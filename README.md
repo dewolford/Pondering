@@ -19,7 +19,7 @@ A class for:
   - shop status
 
 2) Single shops
-  Varaibles
+  Variables
   - Pointer to an array of ducks(customers)
   - pointer to an array of ints(when the ducks arrived at the store)
   - string shop name
@@ -31,8 +31,7 @@ A class for:
   - destructor
   - shop
   - checkout (returns the time spent shopping)
-  - 
-3) Ducks(customers)
+  - 3) Ducks(customers)
   Variables
   - String Name
   - String type of duck (breed)
