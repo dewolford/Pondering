@@ -1,6 +1,6 @@
 /********************
-* Name: Driver.cpp
-* Purpose: The 
+    * Name: Driver.cpp
+    * Purpose: The main executable program for Pondering
  */
 
 #include "Chain.h"
@@ -45,7 +45,7 @@ int main()
 
             //see avg shopping time
             case 4:
-            
+
             break; 
         }
     
