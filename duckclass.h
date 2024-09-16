@@ -33,7 +33,7 @@ using namespace std;
 
         //print duck info
         //will print information on a particular costumer(duck) 
-        void printDuck(shop* thisShop) //pointer to duck array
+        void printDuck(Shop* thisShop) //pointer to duck array
         {
             int i;
             cout << setw(15) << left << "Customer Name:" << right <<  thisShop[i].name <<endl;
