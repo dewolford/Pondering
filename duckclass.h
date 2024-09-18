@@ -1,62 +1,36 @@
 /************************
- * Name:duckclass.h
+ * Name:    duckclass.h
  * Purpose: hold class and functions for object duckies
- */
+ ************************/
 
 #include<string> 
 #include<iomanip> 
 #include<iostream> 
+#include "Shop.h"
+#include "Chain.h"
 using namespace std;
 
 #ifndef duckclass_H
 #define duckclass_H
 
-
 class Duckies 
 {
     //variables
     private:
-    string name, typOfDuck, hat;
-    int age; 
+    string name, typOfDuck, hatType;
+    int age, shopTime; 
 
     //functions
     //constructor
-    Duckies(string a, string b, string c, int d) 
-    {
-        name = a;
-        typOfDuck = b;
-        hat = c;
-        age = d; 
-    }
+    Duckies(); //default
+    Duckies(string, string, string, int); //overloaded
 
     //destructor 
+    ~Duckies();
 
     //print duck info
     //will print information on a particular costumer(duck) 
-    void printDuck(shop* thisShop) //pointer to duck array
-    {
-        int i;
-        cout << setw(15) << left << "Customer Name:" << right <<  thisShop[i].name <<endl;
-        cout << setw(15) << left << "Customer Breed:" << right <<  thisShop[i].typOfDuck <<endl;
-        cout << setw(15) << left << "Customer Age:" << right << thisShop[i].age << endl;
-        cout << setw(15) << left << "Customer Hat:" << right << thisShop[i].hat << endl; 
-    }
+    void printDuck(Shop* ); //pointer to duck array
 
-<<<<<<< HEAD
-        //print duck info
-        //will print information on a particular costumer(duck) 
-        void printDuck(Shop* thisShop) //pointer to duck array
-        {
-            int i;
-            cout << setw(15) << left << "Customer Name:" << right <<  thisShop[i].name <<endl;
-            cout << setw(15) << left << "Customer Breed:" << right <<  thisShop[i].typOfDuck <<endl;
-            cout << setw(15) << left << "Customer Age:" << right << thisShop[i].age << endl;
-            cout << setw(15) << left << "Customer Hat:" << right << thisShop[i].hat << endl; 
-        }
-
-    };
-=======
 };
->>>>>>> 55e2b6e32e710cc59d39c59ed7ec567fab9c0387
-
 #endif

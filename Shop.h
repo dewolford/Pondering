@@ -11,7 +11,7 @@
 #include<iostream> 
 using namespace std;
 
-#include "duckclass.h"
+
 
 class Shop //class declaration/definition
 {
@@ -19,7 +19,6 @@ class Shop //class declaration/definition
         string shopName, location; 
         int capacity, numOfDucks;
         Duckies* ducksInShop;
-        int* numDucksShop;
 
     public:
         //overloaded Shop constructor
