@@ -8,7 +8,7 @@
 #include<iostream> 
 using namespace std;
 
-#include "duckclass.h"
+
 
 #ifndef Shop_h
 #define Shop_h
@@ -19,7 +19,6 @@ using namespace std;
         string shopName, location; 
         int capacity, numOfDucks;
         Duckies* ducksInShop;
-        int* numDucksShop;
 
         public:
 

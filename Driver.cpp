@@ -12,10 +12,12 @@
 #include <cstring>
 using namespace std;
 
+Chain* addShop();
+
 int main()
 {
     int choice; 
-
+    Chain* array = new Chain[10];
 
     do
     {
@@ -30,7 +32,7 @@ int main()
         {
             //add shop
             case 1:
-            
+            addShop(array);
             break;
 
             //tear down shop
@@ -56,4 +58,22 @@ int main()
 
 
     return 0;
+}
+
+Chain* addShop(Chain* array)
+{
+    //variables
+    string name, location;
+    int capacity;
+
+    //user inputs
+    cout << "\n\nWelcome to the add shop function!\n\nWhat is the name of the shop you would like to add?\n";
+    getline(cin, name);
+    cout << "\n\nGreat! Where is this shop located?\n";
+    getline(cin, location);
+    cout << "\n\nAwesome!! Now last question:\nHow many ducks can fit in this store? (max of ten (10))\n";
+    cin >> capacity;
+    cin.ignore();
+
+    //add the new shop into the array
 }

@@ -25,7 +25,7 @@ Chain::Chain(Shop* temp) //overloaded
     }
 }
 
-//deconstructor
+//destructor
 Chain::~Chain()
 {
 
