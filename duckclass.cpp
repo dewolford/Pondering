@@ -8,21 +8,24 @@
 //constructors
 Duckies::Duckies()
 {
-
+    name = " ";
+    typOfDuck = " ";
+    hatType = " ";
+    age =0;
 }
 
 Duckies::Duckies(string a, string b, string c, int d) //overloaded
 {
     name = a;
     typOfDuck = b;
-    hat = c;
+    hatType = c;
     age = d; 
 }
 
 //destructor
 Duckies::~Duckies()
 {
-
+    cout << "Peace out Duck!"
 }
 
 //print duck info

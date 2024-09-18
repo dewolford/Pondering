@@ -13,6 +13,7 @@
 using namespace std;
 
 Chain* addShop();
+getShop(chain*);
 
 int main()
 {
@@ -76,4 +77,9 @@ Chain* addShop(Chain* array)
     cin.ignore();
 
     //add the new shop into the array
+}
+
+void getShop(chain* array)
+{
+
 }
