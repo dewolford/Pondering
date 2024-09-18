@@ -5,6 +5,7 @@
 
 //adding header file
 #include "Shop.h"
+#include "duckclass.h"
 
 //constructor
 Shop::Shop(string a, string b, int c, int d)
