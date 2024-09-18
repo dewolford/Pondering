@@ -12,28 +12,40 @@ using namespace std;
 #define duckclass_H
 
 
-    class Duckies 
+class Duckies 
+{
+    //variables
+    private:
+    string name, typOfDuck, hat;
+    int age; 
+
+    //functions
+    //constructor
+    Duckies(string a, string b, string c, int d) 
     {
-        //variables
-        private:
-        string name, typOfDuck, hat;
-        int age; 
+        name = a;
+        typOfDuck = b;
+        hat = c;
+        age = d; 
+    }
 
-        //functions
-        //constructor
-        Duckies(string a, string b, string c, int d) 
-        {
-            name = a;
-            typOfDuck = b;
-            hat = c;
-            age = d; 
-        }
+    //destructor 
 
-        //destructor 
+    //print duck info
+    //will print information on a particular costumer(duck) 
+    void printDuck(shop* thisShop) //pointer to duck array
+    {
+        int i;
+        cout << setw(15) << left << "Customer Name:" << right <<  thisShop[i].name <<endl;
+        cout << setw(15) << left << "Customer Breed:" << right <<  thisShop[i].typOfDuck <<endl;
+        cout << setw(15) << left << "Customer Age:" << right << thisShop[i].age << endl;
+        cout << setw(15) << left << "Customer Hat:" << right << thisShop[i].hat << endl; 
+    }
 
+<<<<<<< HEAD
         //print duck info
         //will print information on a particular costumer(duck) 
-        void printDuck(shop* thisShop) //pointer to duck array
+        void printDuck(Shop* thisShop) //pointer to duck array
         {
             int i;
             cout << setw(15) << left << "Customer Name:" << right <<  thisShop[i].name <<endl;
@@ -43,5 +55,8 @@ using namespace std;
         }
 
     };
+=======
+};
+>>>>>>> 55e2b6e32e710cc59d39c59ed7ec567fab9c0387
 
 #endif
