@@ -18,12 +18,25 @@ class Shop //class declaration/definition
     private:
         string shopName, location; 
         int capacity, numOfDucks;
-        int ducksInShop[];
+
+        //dynamically allocate or use vector
+        int ducksInShop[10];
+
         Duckies* ducksInShop;
 
     public:
         //overloaded Shop constructor
         Shop(string a, string b, int c, int d);
+
+        //getters
+        string getShopName();
+        string getLocation();
+        int getDuckNum();
+
+        //setters
+        void setLocation(string);
+        void setShopName(string);
+        void setDuckNum(int);
       
         //destructor function
         ~Shop();

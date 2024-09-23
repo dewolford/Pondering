@@ -20,12 +20,12 @@ const int MAX_ARRAY = 10;
 class Chain
 {
     private:
-    Shop* shopFunctions = new Shop[MAX_ARRAY];
+    Shop shopFunctions[MAX_ARRAY];
     
     public:
     //contructors
-    friend Chain Chain(); //default
-    friend Chain Chain(Shop*); //overloaded
+    Chain(); //default
+    Chain(Shop*); //overloaded
     
     //deconstructor
     ~Chain();
@@ -36,6 +36,6 @@ class Chain
     //accessors
     void shopStatus();
 
-}
+};
 
 #endif

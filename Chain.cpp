@@ -14,9 +14,9 @@ Chain::Chain() //default
     for(int x = 0; x < MAX_ARRAY; x++)
     {
         // shopFunctions[x] = blank
-        shopFunctions[x].shopName = "";
-        shopFunctions[x].location = "";
-        shopFunctions[x].numOfDucks = 0;
+        shopFunctions[x].setShopName("Shop Name");
+        shopFunctions[x].setLocation("Location");
+        shopFunctions[x].setDuckNum(0);
     }
 }
 
@@ -25,16 +25,16 @@ Chain::Chain(Shop* temp) //overloaded
     for(int x = 0; x < MAX_ARRAY; x++)
     {   
         // shopFunctions[x] = temp
-        shopFunctions[x].shopName = temp->shopName;
-        shopFunctions[x].location = temp->location;
-        shopFunctions[x].numOfDucks = temp->numOfDucks;
+        shopFunctions[x].setShopName(temp->getShopName());
+        shopFunctions[x].setLocation(temp->getLocation());
+        shopFunctions[x].setDuckNum(temp->getDuckNum());
     }
 }
 
 //destructor
 Chain::~Chain()
 {
-    //delete [] something; 
+    //delete something; 
 
     cout << "\n\nDeleted";
 }
