@@ -12,20 +12,22 @@ Duckies::Duckies()
     typOfDuck = " ";
     hatType = " ";
     age =0;
+    shopTime = 0;
 }
 
-Duckies::Duckies(string a, string b, string c, int d) //overloaded
+Duckies::Duckies(string a, string b, string c, int d, int e) //overloaded
 {
     name = a;
     typOfDuck = b;
     hatType = c;
     age = d; 
+    shopTime = 0; 
 }
 
 //destructor
 Duckies::~Duckies()
 {
-    cout << "Peace out Duck!"
+    delete Duckies[]; 
 }
 
 //print duck info

@@ -12,14 +12,18 @@
 #include <cstring>
 using namespace std;
 
-Chain* addShop();
-getShop(chain*);
+Chain* addShop(Chain);
+void getShop(Chain*);
+
+
 
 int main()
 {
     int choice; 
-    Chain* array = new Chain[10];
+    Chain* arrOfShops;
+    arrOfShops = new Chain[10];
 
+    
     do
     {
         cout << "\n********** PONDERING CEO PORTAL *********" << endl;
@@ -33,30 +37,27 @@ int main()
         {
             //add shop
             case 1:
-            addShop(array);
-            break;
+                addShop(arrOfShops);
+                break;
 
             //tear down shop
             case 2:
-            
-            break;
+                destroyShop(arrOfShops);
+                break;
 
             //display customers in shop
             case 3:
-
-            break;
+                
+                break;
 
             //see avg shopping time
             case 4:
-
-            break; 
+                getShop();
+                cout << "The average shop time for " << Shop shopName << " is " << Duckies avgShopTime << endl;
+                break; 
         }
     
     } while(choice !=5);
-
-
-
-
 
     return 0;
 }
@@ -79,7 +80,40 @@ Chain* addShop(Chain* array)
     //add the new shop into the array
 }
 
-void getShop(chain* array)
+void getShop(Chain* array) // display ducks 
 {
+    int element; 
 
+    do
+    {
+    cout << "What shop do you want to display the current customers?" << endl;
+    cout << "enter 11 to return to main menu or 12 to add duck" << endl; 
+    cin >> element; 
+    cout << 
+    }while(element != 11)
 }
+
+
+Chain* shopStatus(Chain* array) //display attributes of shop and average time 
+{   
+    do
+    {
+        cout << "What shop would you like to access? ";
+        cin >> element;
+        
+
+    }while(element != 5);
+    
+}
+
+void destroyShop(Shop* array)
+{
+    //delete the ducks in the shop and then the actual shop
+    for(int i = 0, i <= 0, i++)
+    {
+        delete Shop.ducksInShop[i];
+    }
+    
+    ~Shop();
+}
+

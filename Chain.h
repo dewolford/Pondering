@@ -15,17 +15,17 @@
 
 using namespace std;
 
-const int NUM = 15;
+const int MAX_ARRAY = 10;
 
 class Chain
 {
     private:
-    Shop* shopFunctions = new Shop[NUM];
+    Shop* shopFunctions = new Shop[MAX_ARRAY];
     
     public:
     //contructors
-    Chain(); //default
-    Chain(Shop*); //overloaded
+    friend Chain Chain(); //default
+    friend Chain Chain(Shop*); //overloaded
     
     //deconstructor
     ~Chain();
@@ -34,7 +34,6 @@ class Chain
     void buildShop(Shop*);
 
     //accessors
-    Shop* getShop() const;
     void shopStatus();
 
 }

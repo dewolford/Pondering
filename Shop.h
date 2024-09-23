@@ -18,6 +18,7 @@ class Shop //class declaration/definition
     private:
         string shopName, location; 
         int capacity, numOfDucks;
+        int ducksInShop[];
         Duckies* ducksInShop;
 
     public:
