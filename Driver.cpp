@@ -1,7 +1,7 @@
-/********************
-    * Name: Driver.cpp
-    * Purpose: The main executable program for Pondering
- */
+/***********************************************************
+*      Name: Driver.cpp                                    *
+*    Purpose: The main executable program for Pondering    *
+************************************************************/
 
 #include "Chain.h"
 #include "Shop.h"
@@ -16,12 +16,11 @@ Chain* addShop(Chain);
 void getShop(Chain*);
 
 
-
 int main()
 {
     int choice; 
     Chain* arrOfShops;
-    arrOfShops = new Chain[10];
+    arrOfShops = new Chain[MAX_ARRAY];
 
     
     do
@@ -53,7 +52,7 @@ int main()
             //see avg shopping time
             case 4:
                 getShop();
-                cout << "The average shop time for " << Shop shopName << " is " << Duckies avgShopTime << endl;
+                cout << "The average shop time for " << /*shopName*/ << " is " << Duckies avgShopTime << endl;
                 break; 
         }
     
@@ -86,16 +85,17 @@ void getShop(Chain* array) // display ducks
 
     do
     {
-    cout << "What shop do you want to display the current customers?" << endl;
-    cout << "enter 11 to return to main menu or 12 to add duck" << endl; 
-    cin >> element; 
-    cout << 
-    }while(element != 11)
+        cout << "What shop do you want to display the current customers?" << endl;
+        cout << "enter 11 to return to main menu or 12 to add duck" << endl; 
+        cin >> element; 
+    }while(element != 11);
 }
 
 
 Chain* shopStatus(Chain* array) //display attributes of shop and average time 
 {   
+    int element;
+
     do
     {
         cout << "What shop would you like to access? ";
@@ -109,9 +109,9 @@ Chain* shopStatus(Chain* array) //display attributes of shop and average time
 void destroyShop(Shop* array)
 {
     //delete the ducks in the shop and then the actual shop
-    for(int i = 0, i <= 0, i++)
+    for(int i = 0; i <= 0; i++)
     {
-        delete Shop.ducksInShop[i];
+        delete [] array;
     }
     
     ~Shop();

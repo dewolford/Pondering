@@ -4,6 +4,8 @@
 *****************************************/
 
 #include "Chain.h"
+#include "Shop.h"
+#include "duckclass.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -39,14 +41,20 @@ Chain::~Chain()
     cout << "\n\nDeleted";
 }
 
-//mutator
+//setter
 void Chain::buildShop(Shop*)
 {
     //put the shop into into an array
 }
 
-//accessors
+//getter
 void Chain::shopStatus()
 {
     //print out shops
+    for(int x = 0; x < MAX_ARRAY; x++)
+    {
+        cout << setw(25) << left << shopFunctions[x].getShopName();
+        cout << setw(25) << left << shopFunctions[x].getLocation();
+        cout << setw(25) << left << shopFunctions[x].getDuckNum() << endl;
+    }
 }

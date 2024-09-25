@@ -30,10 +30,10 @@ class Chain
     //deconstructor
     ~Chain();
 
-    //mutator
+    //setter
     void buildShop(Shop*);
 
-    //accessors
+    //getter
     void shopStatus();
 
 };
