@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip> 
 
 //constructors
 Chain::Chain() //default
@@ -16,9 +17,10 @@ Chain::Chain() //default
     for(int x = 0; x < MAX_ARRAY; x++)
     {
         // shopFunctions[x] = blank
-        shopFunctions[x].setShopName("Shop Name");
-        shopFunctions[x].setLocation("Location");
-        shopFunctions[x].setDuckNum(0);
+        shopFunctions[x].setShopName(" ");
+        shopFunctions[x].settLocation(" ");
+        shopFunctions[x].setNumOfDucks(0);
+        shopFunctions[x].setCapacity(MAX_ARRAY);
     }
 }
 
@@ -28,8 +30,9 @@ Chain::Chain(Shop* temp) //overloaded
     {   
         // shopFunctions[x] = temp
         shopFunctions[x].setShopName(temp->getShopName());
-        shopFunctions[x].setLocation(temp->getLocation());
-        shopFunctions[x].setDuckNum(temp->getDuckNum());
+        shopFunctions[x].settLocation(temp->getLocation());
+        shopFunctions[x].setNumOfDucks(temp->getNumOfDucks());
+        shopFunctions[x].setCapacity(temp->getCapacity());
     }
 }
 
@@ -42,19 +45,25 @@ Chain::~Chain()
 }
 
 //setter
-void Chain::buildShop(Shop*)
+void Chain::buildShop(Shop* shop, int x)
 {
-    //put the shop into into an array
+    
 }
 
 //getter
 void Chain::shopStatus()
 {
+
+}
+
+void displayShop(Shop* shopFunctions)
+{
     //print out shops
     for(int x = 0; x < MAX_ARRAY; x++)
     {
-        cout << setw(25) << left << shopFunctions[x].getShopName();
-        cout << setw(25) << left << shopFunctions[x].getLocation();
-        cout << setw(25) << left << shopFunctions[x].getDuckNum() << endl;
+        cout << setw(25) << left << "Shop Name: " << setw(10) << right << shopFunctions[x].getShopName() << endl;
+        cout << setw(25) << left << "Shop Location: " << setw(10) << right << shopFunctions[x].getLocation() << endl;
+        cout << setw(25) << left << "Current Number of Ducks in Store: " << setw(10) << right << shopFunctions[x].getNumOfDucks() << endl;
+        cout << setw(25) << left << "Capacity of the Store: " << setw(10) << right <<shopFunctions[x].getCapacity() << endl;
     }
 }

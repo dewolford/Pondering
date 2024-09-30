@@ -88,6 +88,7 @@ void getShop(Chain* array) // display ducks
         cout << "What shop do you want to display the current customers?" << endl;
         cout << "enter 11 to return to main menu or 12 to add duck" << endl; 
         cin >> element; 
+        array[element].
     }while(element != 11);
 }
 
@@ -98,11 +99,11 @@ Chain* shopStatus(Chain* array) //display attributes of shop and average time
 
     do
     {
-        cout << "What shop would you like to access? ";
+        cout << "What shop would you like to access?\nTo return to menu enter 11 or 12 to add a shop:";
         cin >> element;
-        
+        array[element].displayShop(element);
 
-    }while(element != 5);
+    }while(element != 11);
     
 }
 

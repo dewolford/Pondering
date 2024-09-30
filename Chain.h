@@ -31,10 +31,12 @@ class Chain
     ~Chain();
 
     //setter
-    void buildShop(Shop*);
+    void buildShop(Shop*, int);
 
     //getter
     void shopStatus();
+
+    void displayShop(Shop* shopFunctions);
 
 };
 

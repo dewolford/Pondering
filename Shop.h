@@ -54,7 +54,7 @@ Shop(string a, string b, int c, int d)
 //destructor
 Shop::~Shop()
 {
-    delete Shop; 
+    delete Shop[]; 
 }
 
 //setters

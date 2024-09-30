@@ -21,8 +21,6 @@ class Duckies
     int age, shopTime; 
     
     public:
-    //functions
-    //constructor
     
 //constructors
 Duckies()
@@ -92,17 +90,6 @@ Duckies(string N, string B, string H, int A, int ST)
 Duckies::~Duckies()
 {
     delete Duckies; 
-}
-
-//print duck info
-//will print information on a particular costumer(duck) 
-void printDuck(Duckies* thisShop) //pointer to duck array
-{
-    int i;
-    cout << setw(15) << left << "Customer Name:" << right <<  thisShop[i].name <<endl;
-    cout << setw(15) << left << "Customer Breed:" << right <<  thisShop[i].typOfDuck <<endl;
-    cout << setw(15) << left << "Customer Age:" << right << thisShop[i].age << endl;
-    cout << setw(15) << left << "Customer Hat:" << right << thisShop[i].hatType << endl; 
 }
 
 
