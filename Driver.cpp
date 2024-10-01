@@ -53,10 +53,9 @@ void getShop(Chain);
 int main()
 {
     int choice; 
-    Chain arrOfShops;
-    arrOfShops = new Chain shop;
-    int numShops = 0, numDucks;
-    string shopName, shopLocation, duckName, typeDuck;
+    Chain* arrOfShops = new Chain;
+    int numShops = 0, numDucks, ageOfD, shopTime;
+    string shopName, shopLocation, duckName, typeDuck, hatType;
 
     //aks user how many shops they want to start with 
     cout << "\nEnter in the number of shops you would like to start with: " << endl;
@@ -77,6 +76,8 @@ int main()
         cin >> numDucks;
 
         cout << "\nPardon me sire, enter in the information for each ducky." << endl;
+            
+        arrOfShops = new Chain(i, shopName, shopLocation, numDucks, MAX_ARRAY);
 
         for(int j = 0; j < numDucks; j++)
         {
@@ -88,6 +89,15 @@ int main()
             cout << "Type/Breed of Duck: " << endl;
             getline(cin, typeDuck);
 
+            cout << "Ducks favorite hat: " << endl; 
+            getline(cin, hatType);
+
+            cout << "How old is the duck: " << endl; 
+            cin >> ageOfD;
+
+            cout << "How long does it take them to shop: " << endl;
+            cin >> shopTime; 
+        
         }
     }
 

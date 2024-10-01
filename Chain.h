@@ -25,7 +25,7 @@ class Chain
     public:
     //contructors
     Chain(); //default
-    Chain(Shop*); //overloaded
+    Chain(int, string, string, int, int); //overloaded
     
     //deconstructor
     ~Chain();

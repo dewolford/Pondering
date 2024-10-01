@@ -24,16 +24,13 @@ Chain::Chain() //default
     }
 }
 
-Chain::Chain(Shop* temp) //overloaded
+Chain::Chain(int i, string name, string location, int numD, int cap) //overloaded
 {
-    for(int x = 0; x < MAX_ARRAY; x++)
-    {   
-        // shopFunctions[x] = temp
-        shopFunctions[x].setShopName(temp->getShopName());
-        shopFunctions[x].settLocation(temp->getLocation());
-        shopFunctions[x].setNumOfDucks(temp->getNumOfDucks());
-        shopFunctions[x].setCapacity(temp->getCapacity());
-    }
+    shopFunctions[i].setShopName(name);
+    shopFunctions[i].settLocation(location);
+    shopFunctions[i].setNumOfDucks(numD);
+    shopFunctions[i].setCapacity(cap);
+    shopFunctions[i].
 }
 
 //destructor

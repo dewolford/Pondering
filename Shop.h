@@ -18,11 +18,7 @@ class Shop //class declaration/definition
     private:
         string shopName, location; 
         int capacity, numOfDucks;
-
-        //dynamically allocate or use vector
-        int ducksInShop[MAX_ARRAY];
-
-        Duckies* ducksInShop;
+        Duckies duckFunctions[MAX_ARRAY];
 
     public:
         //overloaded Shop constructor
@@ -40,6 +36,14 @@ Shop()
     this->location = " ";
     this->capacity = 0;
     this->numOfDucks = 0;
+    for(int x = 0; x < MAX_ARRAY; x++)
+    {
+        duckFunctions[x].setName(" ");
+        duckFunctions[x].setBreed(" ");
+        duckFunctions[x].setHat(" ");
+        duckFunctions[x].setAge(0);
+        duckFunctions[x].setShopTime(0);
+    }
 }
 
 //overloaded constructor
@@ -54,7 +58,12 @@ Shop(string a, string b, int c, int d)
 //destructor
 Shop::~Shop()
 {
-    delete Shop; 
+    delete [] ducksInShop; 
+    delete ducksInShop;
+
+    delete Shop;
+
+    cout << "\n\nThe shop has been torn down.";
 }
 
 //setters
