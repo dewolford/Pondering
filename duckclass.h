@@ -41,49 +41,20 @@ Duckies(string N, string B, string H, int A, int ST)
     this->shopTime = ST; 
 }
     
-    //setters
-    void Duckies::setName(string name)
-    {
-        this->name = name; 
-    }
-    void Duckies::setBreed(string typOfDuck)
-    {
-        this->typOfDuck = typOfDuck;
-    }
-    void Duckies::setHat(string hatType)
-    {
-        this->hatType = hatType;
-    }
-    void Duckies::setAge(int Age)
-    {
-        this->age = age;
-    }
-    void Duckies::setShopTime(int shopTime)
-    {
-        this->shopTime = shopTime;
-    }
+//setters
+    void Duckies::setName(string name);
+    void Duckies::setBreed(string typOfDuck);
+    void Duckies::setHat(string hatType);
+    void Duckies::setAge(int Age);
+    void Duckies::setShopTime(int shopTime);
 
-    //getters
-    string Duckies::getName() const
-    {
-        return this->name;
-    }
-    string Duckies::getBreed() const
-    {
-        return this->typOfDuck;
-    }
-    string Duckies::getHat() const 
-    {
-        return this->hatType;
-    }
-    int Duckies::getAge() const
-    {
-        return this->age;
-    }
-    int Duckies::getShopTime() const
-    {
-        return this->shopTime;
-    }
+
+//getters
+    string Duckies::getName() const;
+    string Duckies::getBreed() const;
+    string Duckies::getHat() const;
+    int Duckies::getAge() const;
+    int Duckies::getShopTime() const;
 
 
 //destructor

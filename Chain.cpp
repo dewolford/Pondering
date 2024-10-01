@@ -44,17 +44,42 @@ Chain::~Chain()
     cout << "\n\nDeleted";
 }
 
-//setter
-void Chain::buildShop(Shop* shop, int x)
+//setters
+void Chain::setNameChain(Shop* shop, string name, int x)
 {
-    
+    shop[x].setShopName(name);
+}
+void Chain::setLocationChain(Shop* shop, string location, int x)
+{
+    shop[x].settLocation(location);
+}
+void Chain::setCapacityChain(Shop* shop, int capacity, int x)
+{
+    shop[x].setCapacity(capacity);
+}
+void Chain::setNumDuckChain(Shop* shop, int ducks, int x)
+{
+    shop[x].setNumOfDucks(ducks);
 }
 
-//getter
-void Chain::shopStatus()
-{
-
+//getters
+string Chain::getNameChain(Shop* shop, int x) const
+{   
+    return shop[x].getShopName();
 }
+string Chain::getLocationChain(Shop* shop, int x) const
+{
+    return shop[x].getLocation();
+}
+int Chain::getCapacityChain(Shop* shop, int x) const
+{
+    return shop[x].getCapacity();
+}
+int Chain::getNumDuckChain(Shop* shop, int x) const
+{
+    return shop[x].getNumOfDucks();
+}
+
 
 void displayShop(Shop* shopFunctions)
 {

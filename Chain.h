@@ -30,13 +30,20 @@ class Chain
     //deconstructor
     ~Chain();
 
-    //setter
-    void buildShop(Shop*, int);
+    //setters
+    void setNameChain(Shop*, string, int);
+    void setLocationChain(Shop*, string, int);
+    void setCapacityChain(Shop*, int, int);
+    void setNumDuckChain(Shop*, int, int);
 
-    //getter
-    void shopStatus();
+    //getters
+    string getNameChain(Shop*, int) const;
+    string getLocationChain(Shop*, int) const;
+    int getCapacityChain(Shop*, int) const;
+    int getNumDuckChain(Shop*, int) const;
+    
 
-    void displayShop(Shop* shopFunctions);
+    void displayShop(Shop*);
 
 };
 

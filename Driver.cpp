@@ -1,6 +1,39 @@
 /***********************************************************
 *      Name: Driver.cpp                                    *
-*    Purpose: The main executable program for Pondering    *
+*    Purpose: The main executable program for Pondering  
+
+
+int numIceCreams;
+    string cone, flavor, topping;
+    double price;
+    IceCream** iceCreamArray;
+
+    cout << "How many Ice Creams would you like?  ";
+    cin >> numIceCreams;
+    cin.ignore();
+
+    iceCreamArray = new IceCream*[numIceCreams];
+
+    for(int i = 0; i < numIceCreams; i++)
+    {
+        //gets data from the user
+        cout << "\nEnter data for Ice Cream " << i + 1 << ": ";
+
+        cout << "\nType of cone? \t";
+        getline(cin, cone);
+        cout << "What flavor? \t";
+        getline(cin, flavor);
+        cout << "What topping? \t";
+        getline(cin, topping);
+        cout << "Price\t\t$ ";
+        cin >> price;
+        cin.ignore();
+        
+        //creates IceCream object and put address in the array
+        iceCreamArray[i] = new IceCream(cone, flavor, topping, price);
+
+    }
+ 
 ************************************************************/
 
 #include "Chain.h"
@@ -10,25 +43,63 @@
 #include <iostream>
 #include <iomanip>
 #include <cstring>
+#include <fstream>
 using namespace std;
 
-Chain* addShop(Chain);
-void getShop(Chain*);
+Chain addShop(Chain);
+void getShop(Chain);
 
 
 int main()
 {
     int choice; 
-    Chain* arrOfShops;
-    arrOfShops = new Chain[MAX_ARRAY];
+    Chain arrOfShops;
+    arrOfShops = new Chain shop;
+    int numShops = 0, numDucks;
+    string shopName, shopLocation, duckName, typeDuck;
 
+    //aks user how many shops they want to start with 
+    cout << "\nEnter in the number of shops you would like to start with: " << endl;
+    cin >> numShops;
+
+    cin.ignore(); 
+
+    //for loop to enter in data for num of shops
+    for(int i = 0; i < numShops; i++)
+    {
+        cout << "\nShop name: " << endl;
+        getline(cin, shopName);
+
+        cout << "\nShop Location: " << endl;
+        getline(cin, shopLocation);
+        
+        cout << "\nHow many ducks are quacka-a-laking in the shop?" << endl;
+        cin >> numDucks;
+
+        cout << "\nPardon me sire, enter in the information for each ducky." << endl;
+
+        for(int j = 0; j < numDucks; j++)
+        {
+            cout << "\n\nEnter in infromation for duck " << j + 1 << " thanks." << endl;
+            
+            cout << "\nDuck name: " << endl;
+            getline(cin,duckName);
+
+            cout << "Type/Breed of Duck: " << endl;
+            getline(cin, typeDuck);
+
+        }
+    }
+
+
+   
     
     do
     {
         cout << "\n********** PONDERING CEO PORTAL *********" << endl;
-        cout << "Please choose from the following:" << endl;
-        cout << "1) Add a shop\n2) Tear down a shop\n3) Display Customers in a Shop" << endl;
-        cout << "4) See Average Shopping Time\n5) Exit Portal";
+        cout << "\nPlease choose from the following:" << endl;
+        cout << "\n1) Add a shop\n2) Tear down a shop\n3) Display Customers in a Shop" << endl;
+        cout << "\n4) See Average Shopping Time\n5) Exit Portal";
         
         cin >> choice;
         
@@ -51,8 +122,8 @@ int main()
 
             //see avg shopping time
             case 4:
-                getShop();
-                cout << "The average shop time for " << /*shopName*/ << " is " << Duckies avgShopTime << endl;
+                getShop(arrOfShops);
+                cout << "\nThe average shop time for " << /*shopName << */ " is " << Duckies avgShopTime << endl;
                 break; 
         }
     
@@ -61,7 +132,7 @@ int main()
     return 0;
 }
 
-Chain* addShop(Chain* array)
+Chain addShop(Chain array)
 {
     //variables
     string name, location;
@@ -72,42 +143,45 @@ Chain* addShop(Chain* array)
     getline(cin, name);
     cout << "\n\nGreat! Where is this shop located?\n";
     getline(cin, location);
-    cout << "\n\nAwesome!! Now last question:\nHow many ducks can fit in this store? (max of ten (10))\n";
+    cout << "\n\nAwesome!! Now last question:\nHow many ducks can fit in this store? (max of 10)\n";
     cin >> capacity;
     cin.ignore();
 
     //add the new shop into the array
 }
 
-void getShop(Chain* array) // display ducks 
+void getShop(Chain array) // display ducks 
 {
     int element; 
 
     do
     {
-        cout << "What shop do you want to display the current customers?" << endl;
-        cout << "enter 11 to return to main menu or 12 to add duck" << endl; 
+        cout << "\nWhat shop do you want to display the current customers?" << endl;
+        cout << "\nEnter 11 to return to main menu or 12 to add duck" << endl; 
         cin >> element; 
-        array[element].
+        array[element];
+        
     }while(element != 11);
 }
 
 
-Chain* shopStatus(Chain* array) //display attributes of shop and average time 
+Chain shopStatus(Chain array) //display attributes of shop and average time 
 {   
-    int element;
+    int element; //lets user pick what shop they want to see data from
 
     do
     {
-        cout << "What shop would you like to access?\nTo return to menu enter 11 or 12 to add a shop:";
+        cout << "\nWhat shop would you like to access?\nTo return to menu enter 11 or enter 12 to add a shop:";
         cin >> element;
-        array[element].displayShop(element);
+        
+        void displayShop(Shop* shopFunctions);
+
 
     }while(element != 11);
     
 }
 
-void destroyShop(Shop* array)
+void destroyShop(Chain array)
 {
     //delete the ducks in the shop and then the actual shop
     for(int i = 0; i <= 0; i++)
