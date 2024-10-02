@@ -54,11 +54,13 @@ int main()
 {
     int choice; 
     Chain* arrOfShops = new Chain;
+    Shop* arrOfDucks = new Shop; 
     int numShops = 0, numDucks, ageOfD, shopTime;
     string shopName, shopLocation, duckName, typeDuck, hatType;
 
-    //aks user how many shops they want to start with 
-    cout << "\nEnter in the number of shops you would like to start with: " << endl;
+    //aks user how many shops they want to start with
+    cout << "\n\nStarting Up Portal For Pondering......\nPlease Start By Making Started Stores:";
+    cout << "\n\nEnter in the number of shops you would like to start with: " << endl;
     cin >> numShops;
 
     cin.ignore(); 
@@ -98,11 +100,12 @@ int main()
 
             cout << "How long does it take them to shop: " << endl;
             cin >> shopTime; 
-        
+
+            arrOfDucks = new Shop(j, duckName, typeDuck, hatType, ageOfD, shopTime);
         }
     }
 
-
+    cout << "Setup Completed......\nBOOTING UP......\n\n";
    
     //do while loop to open the menu for the user and allows them to add/destroy shops and view shop information
     do
@@ -150,21 +153,38 @@ Chain addShop(Chain array)
 {
     //variables
     string name, location;
-    int capacity;
+    int ducksInStore, currentShops;
 
     //user inputs
-    cout << "\n\nWelcome to the add shop function!\n\nWhat is the name of the shop you would like to add?\n";
-    getline(cin, name);
-    cout << "\n\nGreat! Where is this shop located?\n";
-    getline(cin, location);
-    cout << "\n\nAwesome!! Now last question:\nHow many ducks can fit in this store? (max of 10)\n";
-    cin >> capacity;
-    cin.ignore();
+    cout << "How many Shops do you currrently own?(excluding shop that you are currently creating)";
+    cin >> currentShops;
+    while(currentShops >= 11 || currentShops <1) 
+    {
+        cout << "\nImpossible Try Again!";
+    }
+    if(currentShops == 10)
+    {
+        cout << "\nYou have Reached Your Max Capacity of Shops You as CEO Can Handle!!! DESTROY a Shop to make a new one!";
+        return; 
+    }
+    else
+    {
+        cout << "\n\nWelcome to the add shop function!\n\nWhat is the name of the shop you would like to add?\n";
+        getline(cin, name);
+        cout << "\n\nGreat! Where is this shop located?\n";
+        getline(cin, location);
+        cout << "\n\nAwesome!! Now last question:\nHow many ducks are shopping at opening? (max of 10)\n";
+        cin >> ducksInStore; 
+        arrayofShops[currentShops +1].setNameChain(arrayofDucks, name, currentShops+1);
+        for(int  )
+    }
+    
+
 
     //add the new shop into the array
 }
 
-void getShop(Chain array) // display ducks 
+void getShop(Chain* array) // display ducks 
 {
     int element; 
 
@@ -179,7 +199,7 @@ void getShop(Chain array) // display ducks
 }
 
 
-Chain shopStatus(Chain array) //display attributes of shop and average time 
+Chain shopStatus(Chain* array) //display attributes of shop and average time 
 {   
     int element; //lets user pick what shop they want to see data from
 
@@ -195,7 +215,7 @@ Chain shopStatus(Chain array) //display attributes of shop and average time
     
 }
 
-void destroyShop(Chain array)
+void destroyShop(Chain* array)
 {
     //delete the ducks in the shop and then the actual shop
     for(int i = 0; i <= 0; i++)

@@ -30,7 +30,7 @@ Chain::Chain(int i, string name, string location, int numD, int cap) //overloade
     shopFunctions[i].settLocation(location);
     shopFunctions[i].setNumOfDucks(numD);
     shopFunctions[i].setCapacity(cap);
-    shopFunctions[i].
+
 }
 
 //destructor
@@ -76,6 +76,7 @@ int Chain::getNumDuckChain(Shop* shop, int x) const
 {
     return shop[x].getNumOfDucks();
 }
+
 
 
 void displayShop(Shop* shopFunctions)
