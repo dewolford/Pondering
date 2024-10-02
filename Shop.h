@@ -18,7 +18,7 @@ class Shop //class declaration/definition
     private:
         string shopName, location; 
         int capacity, numOfDucks;
-        Duckies duckFunctions[MAX_ARRAY];
+        Duckies duckFunctions[MAX_ARRAY];      
 
     public:
         //overloaded Shop constructor
@@ -47,14 +47,16 @@ Shop()
 }
 
 //overloaded constructor
-Shop(string a, string b, int c, int d)
+Shop(int i, string name, string breed, string hat, int age, int time)
 {
-    this->shopName = a;
-    this->location = b;
-    this->capacity = c;
-    this->numOfDucks = d;
-}
 
+    duckFunctions[i].setName(name);
+    duckFunctions[i].setBreed(breed);
+    duckFunctions[i].setHat(hat);
+    duckFunctions[i].setAge(age);
+    duckFunctions[i].setShopTime(time);
+    
+}
 //destructor
 Shop::~Shop()
 {
@@ -77,6 +79,8 @@ string Shop::getShopName() const;
 string Shop::getLocation() const;
 int Shop:: getCapacity() const;
 int Shop:: getNumOfDucks() const;
+
+void displayDuck(Duckies* thisShop, int i);
 
 };
 
