@@ -26,6 +26,14 @@ void Shop::setNumOfDucks(int numOfDucks)
 {
     this->numOfDucks = numOfDucks;
 }
+void setDuckfunctions(Duckies* duck, int x, string name, string breed, string hat, int age, int shopTime)
+{
+    duck[x].setName(name);
+    duck[x].setBreed(breed);
+    duck[x].setHat(hat);
+    duck[x].setAge(age);
+    duck[x].setShopTime(shopTime);
+}
 
 
 
@@ -47,6 +55,27 @@ int Shop:: getNumOfDucks() const
 {
     return this->numOfDucks; 
 }
+string setDuckname(Duckies* duck, int x) 
+{
+   return duck[x].getName();
+}
+string setDuckbreed(Duckies* duck, int x)
+{
+   return duck[x].getBreed();
+}
+string setDuckHat(Duckies* duck, int x) 
+{
+   return duck[x].getHat();
+}
+int setDuckage(Duckies* duck, int x) 
+{
+   return duck[x].getAge();
+}
+int setDuckST(Duckies* duck, int x)
+{
+   return duck[x].getShopTime();
+}
+
 
 void displayDuck(Duckies* thisShop, int i, int numDucks) //pointer to duck array
 {

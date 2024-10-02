@@ -47,7 +47,7 @@ int numIceCreams;
 using namespace std;
 
 Chain addShop(Chain);
-void getShop(Chain);
+void getCustomers(Chain*, Shop*);
 
 
 int main()
@@ -139,7 +139,7 @@ int main()
 
             //display customers in shop
             case 3:
-                
+                getCustomers(arrOfShops, arrOfDucks);
                 break;
 
             //see avg shopping time
@@ -159,8 +159,8 @@ int main()
 Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
 {
     //variables
-    string name, location;
-    int ducksInStore, currentShops;
+    string nameShop, location, nameDuck, Dbreed, hat;
+    int ducksInStore, currentShops, dage, shopTime;
 
     //user inputs
     cout << "How many Shops do you currrently own?(excluding shop that you are currently creating)";
@@ -172,7 +172,7 @@ Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
         cout << "\nImpossible Try Again!";
     }
 
-    //tells user that thhey have the max number of shops created
+    //tells user that they have the max number of shops created
     if(currentShops == 10) 
     {
         cout << "\nYou have Reached Your Max Capacity of Shops You as CEO Can Handle!!! DESTROY a Shop to make a new one!";
@@ -181,18 +181,31 @@ Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
     else //runs when the user can add more shops
     {
         cout << "\n\nWelcome to the add shop function!\n\nWhat is the name of the shop you would like to add?\n";
-        getline(cin, name);
+        getline(cin, nameShop);
         cout << "\n\nGreat! Where is this shop located?\n";
         getline(cin, location);
         cout << "\n\nAwesome!! Now last question:\nHow many ducks are shopping at opening? (max of 10)\n";
         cin >> ducksInStore; 
-        arrayOfShops[currentShops +1].setNameChain(arrayofDucks, name, currentShops+1);
+        arrayOfShops[currentShops +1].setNameChain(arrayofDucks, nameShop, currentShops+1);
+        arrayOfShops[currentShops +1].setLocationChain(arrayofDucks, location, currentShops+1);
+        arrayOfShops[currentShops +1].setNumDuckChain(arrayofDucks, ducksInStore, currentShops+1);
 
-        for(int x =0; x < ducksInStore; x++ )//allows user to enter in information about the ducks in the store
-        {
             cout << "What ducks are currently shopping?\nPlease enter the information accordingly below" ;
             cout << "***********************************" << endl;
-  
+        for(int x =0; x < ducksInStore; x++ )//allows user to enter in information about the ducks in the store
+        {
+            cout << "*******DUCK " << x+1 << "*******";
+            cout << "What is their name?"; 
+            getline(cin, nameDuck); 
+            cout << "What is their breed?";
+            getline(cin, Dbreed); 
+            cout << "What is " << nameDuck << "favorite hat?";
+            getline(cin, hat);
+            cout << "How old is " << nameDuck << "?";
+            cin >> dage;
+            cout << "How long does it take them to shop?";
+            cin >> shopTime;
+            arrayofDucks.
         }
     }
     
@@ -201,7 +214,7 @@ Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
     //add the new shop into the array
 }
 
-void getShop(Chain* array) // display ducks 
+void getCustomers(Chain* shopsArray, Shop* ducksArray) // display ducks 
 {
     int element; 
 
@@ -210,7 +223,24 @@ void getShop(Chain* array) // display ducks
         cout << "\nWhat shop do you want to display the current customers?" << endl;
         cout << "\nEnter 11 to return to main menu or 12 to add duck" << endl; 
         cin >> element; //user pick action
-        array[element]; 
+
+        if(element == 12)
+        {
+
+            //add duck function
+
+        }
+        
+        else if ((element < 11) && (element > 0))
+        {
+            //display ducks
+            int numDucks = shopsArray[element - 1].getNumDuckChain(ducksArray, element);
+            cout << "\n\nThe number of ducks in the shop right now is " << numDucks;
+            for(int x = 0; x < numDucks; x++)
+            {
+                ducksArray[element - 1].displayDuck(ducksArray, element);
+            }
+        }
         
     }while(element != 11);
 }

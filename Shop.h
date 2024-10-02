@@ -73,6 +73,7 @@ void Shop::setShopName(string shopName);
 void Shop::settLocation(string getLocation);
 void Shop::setCapacity(int capacity);
 void Shop::setNumOfDucks(int numOfDucks);
+void setDuckfunctions(Duckies* duck, int x, string name, string breed, string hat, int age, int shopTime);   
 
 //getters
 string Shop::getShopName() const;
@@ -80,6 +81,12 @@ string Shop::getLocation() const;
 int Shop:: getCapacity() const;
 int Shop:: getNumOfDucks() const;
 
+//allows us to access duck 
+string Shop::setDuckname(Duckies* duck, int x);
+string Shop::setDuckbreed(Duckies* duck, int x);
+string Shop::setDuckHat(Duckies* duck, int x);
+int Shop::setDuckage(Duckies* duck, int x);
+int Shop::setDuckST(Duckies* duck, int x);
 void displayDuck(Duckies* thisShop, int i);
 
 };
