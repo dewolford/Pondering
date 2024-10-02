@@ -79,6 +79,7 @@ int main()
             
         arrOfShops = new Chain(i, shopName, shopLocation, numDucks, MAX_ARRAY);
 
+        //for loop to enter in user data about ducks
         for(int j = 0; j < numDucks; j++)
         {
             cout << "\n\nEnter in infromation for duck " << j + 1 << " thanks." << endl;
@@ -103,7 +104,7 @@ int main()
 
 
    
-    
+    //do while loop to open the menu for the user and allows them to add/destroy shops and view shop information
     do
     {
         cout << "\n********** PONDERING CEO PORTAL *********" << endl;
@@ -113,7 +114,8 @@ int main()
         
         cin >> choice;
         
-        switch(choice)
+        //switch case to open menu for each user choice entered
+        switch(choice) 
         {
             //add shop
             case 1:
@@ -142,6 +144,8 @@ int main()
     return 0;
 }
 
+
+//function to allow user to create shop and enter in shop information -- called 
 Chain addShop(Chain array)
 {
     //variables
