@@ -145,7 +145,7 @@ int main()
     return 0;
 }
 
-Chain addShop(Chain* arrayofShops, Shop* arrayofDucks)
+Chain addShop(Chain array)
 {
     //variables
     string name, location;
