@@ -1,39 +1,6 @@
 /***********************************************************
 *      Name: Driver.cpp                                    *
 *    Purpose: The main executable program for Pondering  
-
-
-int numIceCreams;
-    string cone, flavor, topping;
-    double price;
-    IceCream** iceCreamArray;
-
-    cout << "How many Ice Creams would you like?  ";
-    cin >> numIceCreams;
-    cin.ignore();
-
-    iceCreamArray = new IceCream*[numIceCreams];
-
-    for(int i = 0; i < numIceCreams; i++)
-    {
-        //gets data from the user
-        cout << "\nEnter data for Ice Cream " << i + 1 << ": ";
-
-        cout << "\nType of cone? \t";
-        getline(cin, cone);
-        cout << "What flavor? \t";
-        getline(cin, flavor);
-        cout << "What topping? \t";
-        getline(cin, topping);
-        cout << "Price\t\t$ ";
-        cin >> price;
-        cin.ignore();
-        
-        //creates IceCream object and put address in the array
-        iceCreamArray[i] = new IceCream(cone, flavor, topping, price);
-
-    }
- 
 ************************************************************/
 
 #include "Chain.h"
@@ -46,7 +13,7 @@ int numIceCreams;
 #include <fstream>
 using namespace std;
 
-Chain addShop(Chain);
+void addShop(Chain*, Shop*, Duckies*);
 void getCustomers(Chain*, Shop*);
 
 
@@ -56,6 +23,7 @@ int main()
     int choice; 
     Chain* arrOfShops = new Chain;
     Shop* arrOfDucks = new Shop; 
+    Duckies* duck = new Duckies;
     int numShops = 0, numDucks, ageOfD, shopTime;
     string shopName, shopLocation, duckName, typeDuck, hatType;
 
@@ -129,7 +97,7 @@ int main()
         {
             //add shop
             case 1:
-                addShop(arrOfShops);
+                addShop(arrOfShops, arrOfDucks, duck);
                 break;
 
             //tear down shop
@@ -139,7 +107,7 @@ int main()
 
             //display customers in shop
             case 3:
-                getCustomers(arrOfShops, arrOfDucks);
+                getCustomers(arrOfShops, arrOfDucks, duck);
                 break;
 
             //see avg shopping time
@@ -156,7 +124,7 @@ int main()
 
 
 //function to allow user to create shop and enter in shop information -- called 
-Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
+void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
 {
     //variables
     string nameShop, location, nameDuck, Dbreed, hat;
@@ -205,7 +173,7 @@ Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
             cin >> dage;
             cout << "How long does it take them to shop?";
             cin >> shopTime;
-            arrayofDucks.
+            arrayofDucks->setDuckfunctions(duck, x, nameDuck, Dbreed, hat, dage, shopTime);
         }
     }
     
@@ -214,7 +182,7 @@ Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
     //add the new shop into the array
 }
 
-void getCustomers(Chain* shopsArray, Shop* ducksArray) // display ducks 
+void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display ducks 
 {
     int element; 
 
@@ -238,7 +206,7 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray) // display ducks
             cout << "\n\nThe number of ducks in the shop right now is " << numDucks;
             for(int x = 0; x < numDucks; x++)
             {
-                ducksArray[element - 1].displayDuck(ducksArray, element);
+                ducksArray[element - 1].displayDuck(duck, element);
             }
         }
         
