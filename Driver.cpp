@@ -52,16 +52,23 @@ void getShop(Chain);
 
 int main()
 {
+    //variables
     int choice; 
     Chain* arrOfShops = new Chain;
     Shop* arrOfDucks = new Shop; 
     int numShops = 0, numDucks, ageOfD, shopTime;
     string shopName, shopLocation, duckName, typeDuck, hatType;
 
-    //aks user how many shops they want to start with
+    //ask user how many shops they want to start with
     cout << "\n\nStarting Up Portal For Pondering......\nPlease Start By Making Started Stores:";
     cout << "\n\nEnter in the number of shops you would like to start with: " << endl;
-    cin >> numShops;
+    cin >> numShops; //user entry for number of shops they want
+
+    //user input validation loop to prevent user from entering an invalid number of shops
+    while(numShops >=11 && numShops <= 0)
+    {
+        cout << "You are only allowed at most 10 shops, please enter a number in that range.\n" << endl;
+    }
 
     cin.ignore(); 
 
@@ -79,9 +86,9 @@ int main()
 
         cout << "\nPardon me sire, enter in the information for each ducky." << endl;
             
-        arrOfShops = new Chain(i, shopName, shopLocation, numDucks, MAX_ARRAY);
+        arrOfShops = new Chain(i, shopName, shopLocation, numDucks, MAX_ARRAY); //dynamically allocated array for Chain class
 
-        //for loop to enter in user data about ducks
+        //for loop to enter in user data about ducks until each duck has information 
         for(int j = 0; j < numDucks; j++)
         {
             cout << "\n\nEnter in infromation for duck " << j + 1 << " thanks." << endl;
@@ -101,7 +108,7 @@ int main()
             cout << "How long does it take them to shop: " << endl;
             cin >> shopTime; 
 
-            arrOfDucks = new Shop(j, duckName, typeDuck, hatType, ageOfD, shopTime);
+            arrOfDucks = new Shop(j, duckName, typeDuck, hatType, ageOfD, shopTime); //dynamically allocated array for Shop class
         }
     }
 
@@ -149,7 +156,7 @@ int main()
 
 
 //function to allow user to create shop and enter in shop information -- called 
-Chain addShop(Chain array)
+Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
 {
     //variables
     string name, location;
@@ -158,16 +165,20 @@ Chain addShop(Chain array)
     //user inputs
     cout << "How many Shops do you currrently own?(excluding shop that you are currently creating)";
     cin >> currentShops;
+
+    //validation loop to prevent user from entering more than allowed number of shops
     while(currentShops >= 11 || currentShops <1) 
-    {
+    { 
         cout << "\nImpossible Try Again!";
     }
-    if(currentShops == 10)
+
+    //tells user that thhey have the max number of shops created
+    if(currentShops == 10) 
     {
         cout << "\nYou have Reached Your Max Capacity of Shops You as CEO Can Handle!!! DESTROY a Shop to make a new one!";
         return; 
     }
-    else
+    else //runs when the user can add more shops
     {
         cout << "\n\nWelcome to the add shop function!\n\nWhat is the name of the shop you would like to add?\n";
         getline(cin, name);
@@ -175,8 +186,14 @@ Chain addShop(Chain array)
         getline(cin, location);
         cout << "\n\nAwesome!! Now last question:\nHow many ducks are shopping at opening? (max of 10)\n";
         cin >> ducksInStore; 
-        arrayofShops[currentShops +1].setNameChain(arrayofDucks, name, currentShops+1);
-        for(int  )
+        arrayOfShops[currentShops +1].setNameChain(arrayofDucks, name, currentShops+1);
+
+        for(int x =0; x < ducksInStore; x++ )//allows user to enter in information about the ducks in the store
+        {
+            cout << "What ducks are currently shopping?\nPlease enter the information accordingly below" ;
+            cout << "***********************************" << endl;
+  
+        }
     }
     
 
@@ -188,34 +205,35 @@ void getShop(Chain* array) // display ducks
 {
     int element; 
 
-    do
+    do //do while loop that runs only when user doesn't want to go back to the main menu
     {
         cout << "\nWhat shop do you want to display the current customers?" << endl;
         cout << "\nEnter 11 to return to main menu or 12 to add duck" << endl; 
-        cin >> element; 
-        array[element];
+        cin >> element; //user pick action
+        array[element]; 
         
     }while(element != 11);
 }
 
-
-Chain shopStatus(Chain* array) //display attributes of shop and average time 
+//display attributes of shop and average time 
+Chain shopStatus(Chain* array) 
 {   
     int element; //lets user pick what shop they want to see data from
 
     do
     {
         cout << "\nWhat shop would you like to access?\nTo return to menu enter 11 or enter 12 to add a shop:";
-        cin >> element;
+        cin >> element; //allows user to choose what they want to access 
         
-        void displayShop(Shop* shopFunctions);
+        void displayShop(Shop* shopFunctions); //calls the display shop function 
 
 
     }while(element != 11);
     
 }
 
-void destroyShop(Chain* array)
+//deletes dynamically allocated memory in the Chain class -- called in menu to allow user to destroy shops
+void destroyShop(Chain* array) 
 {
     //delete the ducks in the shop and then the actual shop
     for(int i = 0; i <= 0; i++)

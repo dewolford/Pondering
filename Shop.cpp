@@ -48,16 +48,18 @@ int Shop:: getNumOfDucks() const
     return this->numOfDucks; 
 }
 
-
-void displayDuck(Duckies* thisShop, int i) //pointer to duck array
+void displayDuck(Duckies* thisShop, int i, int numDucks) //pointer to duck array
 {
-
-    cout << setw(15) << left << "Customer Name:" << right <<  thisShop[i].getName() <<endl;
-    cout << setw(15) << left << "Customer Breed:" << right <<  thisShop[i].getBreed() <<endl;
-    cout << setw(15) << left << "Customer Age:" << right << thisShop[i].getAge() << endl;
-    cout << setw(15) << left << "Customer Hat:" << right << thisShop[i].getHat()<< endl; 
-    cout << setw(15) << left << "Customer Shop Time:" << right << thisShop[i].getShopTime() << endl; 
-}
+    for(int x =0; x<numDucks-1; x++)
+    {
+        cout << "******* Duck " << x+1 << "*******" << endl;
+        cout << setw(15) << left << "Customer Name:" << right <<  thisShop[i].getName() <<endl;
+        cout << setw(15) << left << "Customer Breed:" << right <<  thisShop[i].getBreed() <<endl;
+        cout << setw(15) << left << "Customer Age:" << right << thisShop[i].getAge() << endl;
+        cout << setw(15) << left << "Customer Hat:" << right << thisShop[i].getHat()<< endl; 
+        cout << setw(15) << left << "Customer Shop Time:" << right << thisShop[i].getShopTime() << endl; 
+    }
+}   
 
 
 
