@@ -60,8 +60,8 @@ int main()
     string shopName, shopLocation, duckName, typeDuck, hatType;
 
     //ask user how many shops they want to start with
-    cout << "\n\nStarting Up Portal For Pondering......\nPlease Start By Making Started Stores:";
-    cout << "\n\nEnter in the number of shops you would like to start with: " << endl;
+    cout << "\n\nStarting Up Portal For Pondering......\nPlease Start By Making Stores:";
+    cout << "\n\nEnter in the number of shops you would like to start with (max of 10): " << endl;
     cin >> numShops; //user entry for number of shops they want
 
     //user input validation loop to prevent user from entering an invalid number of shops
@@ -159,8 +159,8 @@ int main()
 Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
 {
     //variables
-    string nameShop, location, nameDuck, Dbreed, hat;
-    int ducksInStore, currentShops, dage, shopTime;
+    string nameShop, location, nameDuck, dBreed, hat;
+    int ducksInStore, currentShops, dAge, shopTime;
 
     //user inputs
     cout << "How many Shops do you currrently own?(excluding shop that you are currently creating)";
@@ -198,14 +198,14 @@ Chain addShop(Chain* arrayOfShops, Shop* arrayofDucks)
             cout << "What is their name?"; 
             getline(cin, nameDuck); 
             cout << "What is their breed?";
-            getline(cin, Dbreed); 
+            getline(cin, dBreed); 
             cout << "What is " << nameDuck << "favorite hat?";
             getline(cin, hat);
             cout << "How old is " << nameDuck << "?";
-            cin >> dage;
+            cin >> dAge;
             cout << "How long does it take them to shop?";
             cin >> shopTime;
-            arrayofDucks.
+            //arrayofDucks
         }
     }
     
@@ -224,6 +224,11 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray) // display ducks
         cout << "\nEnter 11 to return to main menu or 12 to add duck" << endl; 
         cin >> element; //user pick action
 
+        while(element <= 0 && element > 12) //user input validation statement to not allow them to enter in an invalid number
+        {
+            cout << "Number entered is invalid. Please enter in a number that matches one of the given options." << endl;
+        }
+
         if(element == 12)
         {
 
@@ -233,7 +238,7 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray) // display ducks
         
         else if ((element < 11) && (element > 0))
         {
-            //display ducks
+            //display duckss
             int numDucks = shopsArray[element - 1].getNumDuckChain(ducksArray, element);
             cout << "\n\nThe number of ducks in the shop right now is " << numDucks;
             for(int x = 0; x < numDucks; x++)
