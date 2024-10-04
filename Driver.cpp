@@ -32,17 +32,6 @@ int main()
     cout << "\n\nEnter in the number of shops you would like to start with (max of 10): " << endl;
     cin >> numShops; //user entry for number of shops they want
 
-    //validate input
-    if(inputValidation(numShops, 10, 0) == true)
-    {
-        void displayShop(Shop* shopFunctions); //calls the display shop function             
-    }
-    else
-    {
-        cout << "You entered an invalid option. Try again.";
-        cin >> numShops;
-    }
-
     //user input validation loop to prevent user from entering an invalid number of shops
     while(numShops >=11 && numShops <= 0)
     {
@@ -135,12 +124,11 @@ int main()
             //see avg shopping time
             case 4:
                 getShop(arrOfShops);
-                cout << "\nThe average shop time for " << /*shopName << */ " is " << Duckies avgShopTime << endl;
                 break; 
         }
     
     } while(choice !=5);
-
+    cout << "Thank you for using Pondering's CEO Portal!\nSee you again tommorrow boss!";
     return 0;
 }
 
@@ -206,7 +194,7 @@ void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
             cin >> dAge;
             cout << "How long does it take them to shop?";
             cin >> shopTime;
-            arrayofDucks->setDuckfunctions(duck, x, nameDuck, Dbreed, hat, dage, shopTime);
+            arrayofDucks->setDuckfunctions(duck, x, nameDuck, dBreed, hat, dAge, shopTime);
 
         }
     }
@@ -218,7 +206,8 @@ void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
 
 void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display ducks 
 {
-    int element; 
+    int element, tempShop, numDucks, tempAge, tempST;
+    string tempName, tempHat, tempBreed; 
 
     do //do while loop that runs only when user doesn't want to go back to the main menu
     {
@@ -242,10 +231,24 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
             cout << "Number entered is invalid. Please enter in a number that matches one of the given options." << endl;
         }
 
-        if(element == 12)
+        if(element == 12) //adding a duck
         {
+            cout << "what shop would you like to add a duck to?";
+            cin >> tempShop;
+            cout << "How many Ducks are currently in shop " << shopsArray[tempShop-1].getNameChain(ducksArray, tempShop-1) << "?";
+            cin >> numDucks;
+            cout << "What is your ducks name?";
+            getline(cin, tempName);
+            cout << "What is " << tempName << " breed? ";
+            getline(cin, tempBreed);
+            cout << "What is " << tempName << " favorite hat? ";
+            getline(cin, tempHat);
+            cout << "What is " << tempName << " age? ";
+            cin >> tempAge;
+            cout << "How long will it take them to shop? ";
+            cin >> tempST;
 
-            //add duck function
+             ducksArray->setDuckfunctions(duck, tempShop, tempName, tempBreed, tempHat, tempAge, tempST);
 
         }
         
@@ -261,6 +264,7 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
         }
         
     }while(element != 11);
+    return; 
 }
 
 //display attributes of shop and average time 
