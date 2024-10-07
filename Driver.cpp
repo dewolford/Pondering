@@ -278,15 +278,6 @@ Chain shopStatus(Chain* array)
         cin >> element; //allows user to choose what they want to access 
 
         //input validation
-        if(inputValidation(element, 12, 1) == true)
-        {
-            void displayShop(Shop* shopFunctions); //calls the display shop function             
-        }
-        else
-        {
-            cout << "You entered an invalid option. Try again.";
-            cin >> element;
-        }
         
         void displayShop(Shop* shopFunctions); //calls the display shop function 
 
