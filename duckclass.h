@@ -6,6 +6,7 @@
 #include<string> 
 #include<iomanip> 
 #include<iostream> 
+
 #include "Shop.h"
 #include "Chain.h"
 using namespace std;
@@ -42,23 +43,23 @@ Duckies(string N, string B, string H, int A, int ST)
 }
     
 //setters
-    void Duckies::setName(string name);
-    void Duckies::setBreed(string typOfDuck);
-    void Duckies::setHat(string hatType);
-    void Duckies::setAge(int Age);
-    void Duckies::setShopTime(int shopTime);
+    void setName(string name);
+    void setBreed(string typOfDuck);
+    void setHat(string hatType);
+    void setAge(int Age);
+    void setShopTime(int shopTime);
 
 
 //getters
-    string Duckies::getName() const;
-    string Duckies::getBreed() const;
-    string Duckies::getHat() const;
-    int Duckies::getAge() const;
-    int Duckies::getShopTime() const;
+    string getName() const;
+    string getBreed() const;
+    string getHat() const;
+    int getAge() const;
+    int getShopTime() const;
 
 
 //destructor
-Duckies::~Duckies()
+~Duckies()
 {
     delete Duckies; 
 }
