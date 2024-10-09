@@ -61,7 +61,7 @@ Duckies(string N, string B, string H, int A, int ST)
 //destructor
 ~Duckies()
 {
-    delete Duckies; 
+    cout << "THE DUCK HAS BEEN MURDERED"; 
 }
 
 

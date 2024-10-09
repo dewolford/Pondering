@@ -64,11 +64,6 @@ Shop(int i, string name, string breed, string hat, int age, int time)
 //destructor
 ~Shop()
 {
-    delete [] ducksInShop; 
-    delete ducksInShop;
-
-    delete Shop;
-
     cout << "\n\nThe shop has been torn down.";
 }
 

@@ -9,23 +9,23 @@
 //will print information on a particular costumer(duck) 
 
  //setters
-    void setName(string name)
+    void Duckies::setName(string name)
     {
         this->name = name; 
     }
-    void setBreed(string typOfDuck)
+    void Duckies::setBreed(string typOfDuck)
     {
         this->typOfDuck = typOfDuck;
     }
-    void setHat(string hatType)
+    void Duckies::setHat(string hatType)
     {
         this->hatType = hatType;
     }
-    void setAge(int Age)
+    void Duckies::setAge(int Age)
     {
         this->age = age;
     }
-    void setShopTime(int shopTime)
+    void Duckies::setShopTime(int shopTime)
     {
         this->shopTime = shopTime;
     }
@@ -33,23 +33,23 @@
 
 
 //getters
-    string getName() const
+    string Duckies::getName() const
     {
         return this->name;
     }
-    string getBreed() const
+    string Duckies::getBreed() const
     {
         return this->typOfDuck;
     }
-    string getHat() const 
+    string Duckies::getHat() const 
     {
         return this->hatType;
     }
-    int getAge() const
+    int Duckies::getAge() const
     {
         return this->age;
     }
-    int getShopTime() const
+    int Duckies::getShopTime() const
     {
         return this->shopTime;
     }
