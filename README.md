@@ -12,6 +12,8 @@ A class for:
   Variables
   - Pointer to an array of shops
   Functions 
+  - private variable setters
+  - private variable getters
   - contains a constructor and destructor
   - build shop
   - destroy shop
@@ -27,6 +29,8 @@ A class for:
   - int current amount of customers
   - where is the shop
   Functions
+  - private variable setters
+  - private variable getters
   - constructor
   - destructor
   - shop
@@ -38,6 +42,8 @@ A class for:
   - String hat
   - int age
   Functions
-  -Constructor
-  -Destructor
+  - private variable setters
+  - private variable getters
+  - Constructor
+  - Destructor
   - get data for the duck
