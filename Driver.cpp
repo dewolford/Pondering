@@ -269,8 +269,13 @@ Chain shopStatus(Chain* array)
         cin >> element; //allows user to choose what they want to access 
 
         //input validation
+        while(element >= 12 || element < 1 ) 
+    { 
+        cout << "\nPlease choose a number that matches an option we gave you.";
+        cin >> element;
+    }
         
-        void displayShop(Shop* shopFunctions); //calls the display shop function 
+    void displayShop(Shop* shopFunctions); //calls the display shop function 
 
 
     }while(element != 11);
