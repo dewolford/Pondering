@@ -90,6 +90,11 @@ void displayDuck(Duckies* thisShop, int i, int numDucks) //pointer to duck array
     }
 }   
 
+//function that gets the average time for all the ducks in the shop
+void shopStatus(int getShopTime())
+{
+
+}
 
 
 
