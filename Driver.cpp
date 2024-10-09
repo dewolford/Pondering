@@ -299,15 +299,11 @@ void shopStatus(Chain* array)
         element = stoi(temp); //allows user to choose what they want to access 
 
         //input validation
-<<<<<<< HEAD
         while(element >= 12 || element < 1 ) 
     { 
         cout << "\nPlease choose a number that matches an option we gave you.";
         cin >> element;
     }
-=======
-        inputValidation(element, 12, 1);
->>>>>>> ad93fbeab61941bbd229b983d211a4bff3c50646
         
     void displayShop(Shop* shopFunctions); //calls the display shop function 
 
@@ -340,16 +336,7 @@ void destroyShop(Chain* array)
 }
 
 
-<<<<<<< HEAD
 bool inputValidation(int input, int high, int low)
-=======
-/*
-    Function name: inputValidation
-    Purpose: validate input from file
-    Return: true if input is in the desired range; false if not
-*/
-bool inputValidation(int &input, int high, int low)
->>>>>>> ad93fbeab61941bbd229b983d211a4bff3c50646
 {
     ifstream test;
     string temp;
