@@ -21,7 +21,7 @@ class Chain
 {
     private:
 <<<<<<< HEAD
-    Shop* = new shopFunctions[MAX_ARRAY];
+    Shop* shopFunctions = new shopFunctions[MAX_ARRAY];
 =======
     Chain shopFunctions[MAX_ARRAY];
 >>>>>>> ad93fbeab61941bbd229b983d211a4bff3c50646
@@ -32,7 +32,9 @@ class Chain
     Chain(int, string, string, int, int); //overloaded
     
     //deconstructor
-    ~Chain();
+    ~Chain(){
+        delete [] Shop;
+    }
 
     //setters
     void setNameChain(Shop*, string, int);

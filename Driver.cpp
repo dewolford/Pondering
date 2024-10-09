@@ -226,7 +226,8 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
 
     test.open("test.txt");
 
-    do //do while loop that runs only when user doesn't want to go back to the main menu
+    //do while loop that runs only when user doesn't want to go back to the main menu
+    do 
     {
         cout << "\nWhat shop do you want to display the current customers?" << endl;
         cout << "\nEnter 11 to return to main menu or 12 to add duck" << endl; 
@@ -327,19 +328,28 @@ void destroyShop(Chain* array)
     //delete the ducks in the shop and then the actual shop
     for(int i = 0; i <= 0; i++)
     {
-        delete [] array;
+        /*for (int j = 0; j <= 0; j++)
+        {
+            delete [] array [i][j];
+        }*/
+        delete [] array [i];
     }
     
-    ~Shop();
+    delete[] array;
+    array = NULL;
 }
 
 
+<<<<<<< HEAD
+bool inputValidation(int input, int high, int low)
+=======
 /*
     Function name: inputValidation
     Purpose: validate input from file
     Return: true if input is in the desired range; false if not
 */
 bool inputValidation(int &input, int high, int low)
+>>>>>>> ad93fbeab61941bbd229b983d211a4bff3c50646
 {
     ifstream test;
     string temp;
