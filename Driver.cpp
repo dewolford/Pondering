@@ -123,7 +123,7 @@ int main()
 
             //see avg shopping time
             case 4:
-                getShop(arrOfShops);
+                displayShop(arrOfShops);
                 break; 
         }
     
@@ -144,21 +144,12 @@ void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
     cout << "How many Shops do you currrently own?(excluding shop that you are currently creating)";
     cin >> currentShops;
 
-    //validate input
-    if(inputValidation(currentShops, 10, 0) == true)
-    {
-        void displayShop(Shop* shopFunctions); //calls the display shop function             
-    }
-    else
-    {
-        cout << "You entered an invalid option. Try again.";
-        cin >> currentShops;
-    }
 
     //validation loop to prevent user from entering more than allowed number of shops
     while(currentShops >= 11 || currentShops <1) 
     { 
         cout << "\nImpossible Try Again!";
+        cin >> currentShops;
     }
 
     //tells user that they have the max number of shops created
@@ -279,15 +270,6 @@ Chain shopStatus(Chain* array)
         cin >> element; //allows user to choose what they want to access 
 
         //input validation
-        if(inputValidation(element, 12, 1) == true)
-        {
-            void displayShop(Shop* shopFunctions); //calls the display shop function             
-        }
-        else
-        {
-            cout << "You entered an invalid option. Try again.";
-            cin >> element;
-        }
         
         void displayShop(Shop* shopFunctions); //calls the display shop function 
 
@@ -316,10 +298,14 @@ void destroyShop(Chain* array)
 
 bool inputValidation(int input, int high, int low)
 {
-    if((input > high) || (input < low))
+    while((input > high) || (input < low))
     {
-        return false; 
+
+        cout << "\n\nSorry that was an invalid option; try again:\n";
+        cin >> input;
     }
-    else
+    if((input < high) && (input > low))
         return true;
+    else
+        return false;
 }
