@@ -291,10 +291,14 @@ void destroyShop(Chain* array)
 
 bool inputValidation(int input, int high, int low)
 {
-    if((input > high) || (input < low))
+    while((input > high) || (input < low))
     {
-        return false; 
+
+        cout << "\n\nSorry that was an invalid option; try again:\n";
+        cin >> input;
     }
-    else
+    if((input < high) && (input > low))
         return true;
+    else
+        return false;
 }
