@@ -20,7 +20,11 @@ const int MAX_ARRAY = 10;
 class Chain
 {
     private:
+<<<<<<< HEAD
     Shop* shopFunctions = new shopFunctions[MAX_ARRAY];
+=======
+    Chain shopFunctions[MAX_ARRAY];
+>>>>>>> ad93fbeab61941bbd229b983d211a4bff3c50646
     
     public:
     //contructors

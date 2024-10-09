@@ -10,19 +10,19 @@
 
 
 //setters
-void Shop::setShopName(string shopName)
+void setShopName(string shopName)
 {
     this->shopName = shopName; 
 }
-void Shop::settLocation(string getLocation)
+void settLocation(string getLocation)
 {
     this->location = getLocation;
 }
-void Shop::setCapacity(int capacity)
+void setCapacity(int capacity)
 {
     this->capacity = capacity;
 }
-void Shop::setNumOfDucks(int numOfDucks)
+void setNumOfDucks(int numOfDucks)
 {
     this->numOfDucks = numOfDucks;
 }
@@ -39,19 +39,19 @@ void setDuckfunctions(Duckies* duck, int x, string name, string breed, string ha
 
 
 //getters
-string Shop::getShopName() const
+string getShopName() const
 {
     return this->shopName; 
 }
-string Shop::getLocation() const
+string getLocation() const
 {
     return this->location;
 }
-int Shop:: getCapacity() const
+int getCapacity() const
 {
     return MAX_ARRAY;
 }
-int Shop:: getNumOfDucks() const
+int getNumOfDucks() const
 {
     return this->numOfDucks; 
 }
