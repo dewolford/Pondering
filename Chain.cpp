@@ -78,7 +78,7 @@ int Chain::getNumDuckChain(Shop* shop, int x) const
 }
 
 
-
+//displays shop informat
 void displayShop(Shop* shopFunctions)
 {
     //print out shops
