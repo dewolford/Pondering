@@ -15,28 +15,39 @@
 
 using namespace std;
 
-const int NUM = 15;
+const int MAX_ARRAY = 10;
 
 class Chain
 {
     private:
-    Shop* shopFunctions = new Shop[NUM];
+    Shop* shopFunctions[MAX_ARRAY];
     
     public:
     //contructors
     Chain(); //default
-    Chain(Shop*); //overloaded
+    Chain(int, string, string, int, int); //overloaded
     
     //deconstructor
-    ~Chain();
+    ~Chain()
+    {
+        delete [] shopFunctions[MAX_ARRAY];
+    }
 
-    //mutator
-    void buildShop(Shop*);
+    //setters
+    void setNameChain(Shop*, string, int);
+    void setLocationChain(Shop*, string, int);
+    void setCapacityChain(Shop*, int, int);
+    void setNumDuckChain(Shop*, int, int);
 
-    //accessors
-    Shop* getShop() const;
-    void shopStatus();
+    //getters
+    string getNameChain(Shop*, int) const;
+    string getLocationChain(Shop*, int) const;
+    int getCapacityChain(Shop*, int) const;
+    int getNumDuckChain(Shop*, int) const;
+    
 
-}
+    void displayShop(Shop*);
+
+};
 
 #endif

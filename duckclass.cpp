@@ -5,36 +5,51 @@
 
 #include "duckclass.h"
 
-//constructors
-Duckies::Duckies()
-{
-    name = " ";
-    typOfDuck = " ";
-    hatType = " ";
-    age =0;
-}
-
-Duckies::Duckies(string a, string b, string c, int d) //overloaded
-{
-    name = a;
-    typOfDuck = b;
-    hatType = c;
-    age = d; 
-}
-
-//destructor
-Duckies::~Duckies()
-{
-    cout << "Peace out Duck!"
-}
-
 //print duck info
 //will print information on a particular costumer(duck) 
-void::printDuck(Shop* thisShop) //pointer to duck array
-{
-    int i;
-    cout << setw(15) << left << "Customer Name:" << right <<  thisShop[i].name <<endl;
-    cout << setw(15) << left << "Customer Breed:" << right <<  thisShop[i].typOfDuck <<endl;
-    cout << setw(15) << left << "Customer Age:" << right << thisShop[i].age << endl;
-    cout << setw(15) << left << "Customer Hat:" << right << thisShop[i].hat << endl; 
-}
+
+ //setters
+    void Duckies::setName(string name)
+    {
+        this->name = name; 
+    }
+    void Duckies::setBreed(string typOfDuck)
+    {
+        this->typOfDuck = typOfDuck;
+    }
+    void Duckies::setHat(string hatType)
+    {
+        this->hatType = hatType;
+    }
+    void Duckies::setAge(int Age)
+    {
+        this->age = age;
+    }
+    void Duckies::setShopTime(int shopTime)
+    {
+        this->shopTime = shopTime;
+    }
+
+
+
+//getters
+    string Duckies::getName() const
+    {
+        return this->name;
+    }
+    string Duckies::getBreed() const
+    {
+        return this->typOfDuck;
+    }
+    string Duckies::getHat() const 
+    {
+        return this->hatType;
+    }
+    int Duckies::getAge() const
+    {
+        return this->age;
+    }
+    int Duckies::getShopTime() const
+    {
+        return this->shopTime;
+    }

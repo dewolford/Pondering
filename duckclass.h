@@ -6,6 +6,7 @@
 #include<string> 
 #include<iomanip> 
 #include<iostream> 
+
 #include "Shop.h"
 #include "Chain.h"
 using namespace std;
@@ -19,18 +20,50 @@ class Duckies
     private:
     string name, typOfDuck, hatType;
     int age, shopTime; 
+    
+    public:
+    
+//constructors
+Duckies()
+{
+    this->name = " ";
+    this->typOfDuck = " ";
+    this->hatType = " ";
+    this->age =0;
+    this->shopTime = 0;
+}
 
-    //functions
-    //constructor
-    Duckies(); //default
-    Duckies(string, string, string, int); //overloaded
+Duckies(string N, string B, string H, int A, int ST)
+{
+    this->name = N;
+    this->typOfDuck = B;
+    this->hatType = H;
+    this->age = A;
+    this->shopTime = ST; 
+}
+    
+//setters
+    void setName(string name);
+    void setBreed(string typOfDuck);
+    void setHat(string hatType);
+    void setAge(int Age);
+    void setShopTime(int shopTime);
 
-    //destructor 
-    ~Duckies();
 
-    //print duck info
-    //will print information on a particular costumer(duck) 
-    void printDuck(Shop* ); //pointer to duck array
+//getters
+    string getName() const;
+    string getBreed() const;
+    string getHat() const;
+    int getAge() const;
+    int getShopTime() const;
+
+
+//destructor
+~Duckies()
+{
+    cout << "THE DUCK HAS BEEN MURDERED"; 
+}
+
 
 };
 #endif

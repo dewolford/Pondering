@@ -1,6 +1,6 @@
 # Pondering
 ******* Pondering- Exquisite Artisan Hats ******
-A menu based program to control Pondering (A chain of Artisian Duck Hats) day to day operations. The CEO(user) of Pondering will be able to build and to destroy shops to manage the chain. They will also be able to check on individual shops and their details. They will be able to look into the customers in the stores as well.
+A menu based program to control Pondering's (A chain store of Artisian Duck Hats) day to day operations. The CEO (user) of Pondering will be able to build and destroy shops to manage the chain. They will also be able to check on individual shops and their details. They will be able to look into the customers in the stores as well.
 
 This program should 
 Driver
@@ -12,6 +12,8 @@ A class for:
   Variables
   - Pointer to an array of shops
   Functions 
+  - private variable setters
+  - private variable getters
   - contains a constructor and destructor
   - build shop
   - destroy shop
@@ -27,10 +29,13 @@ A class for:
   - int current amount of customers
   - where is the shop
   Functions
+  - private variable setters
+  - private variable getters
   - constructor
   - destructor
   - shop
   - checkout (returns the time spent shopping)
+
 3) Ducks(customers)
   Variables
   - String Name
@@ -38,6 +43,8 @@ A class for:
   - String hat
   - int age
   Functions
-  -Constructor
-  -Destructor
+  - private variable setters
+  - private variable getters
+  - Constructor
+  - Destructor
   - get data for the duck
