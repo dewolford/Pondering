@@ -20,11 +20,7 @@ const int MAX_ARRAY = 10;
 class Chain
 {
     private:
-<<<<<<< HEAD
-    Shop* shopFunctions = new shopFunctions[MAX_ARRAY];
-=======
-    Chain shopFunctions[MAX_ARRAY];
->>>>>>> ad93fbeab61941bbd229b983d211a4bff3c50646
+    Shop* shopFunctions[MAX_ARRAY];
     
     public:
     //contructors
@@ -32,8 +28,9 @@ class Chain
     Chain(int, string, string, int, int); //overloaded
     
     //deconstructor
-    ~Chain(){
-        delete [] Shop;
+    ~Chain()
+    {
+        delete [] shopFunctions[MAX_ARRAY];
     }
 
     //setters

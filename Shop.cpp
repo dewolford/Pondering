@@ -10,23 +10,23 @@
 
 
 //setters
-void setShopName(string shopName)
+void Shop::setShopName(string shopName)
 {
     this->shopName = shopName; 
 }
-void settLocation(string getLocation)
+void Shop::settLocation(string getLocation)
 {
     this->location = getLocation;
 }
-void setCapacity(int capacity)
+void Shop::setCapacity(int capacity)
 {
     this->capacity = capacity;
 }
-void setNumOfDucks(int numOfDucks)
+void Shop::setNumOfDucks(int numOfDucks)
 {
     this->numOfDucks = numOfDucks;
 }
-void setDuckfunctions(Duckies* duck, int x, string name, string breed, string hat, int age, int shopTime)
+void Shop::setDuckfunctions(Duckies* duck, int x, string name, string breed, string hat, int age, int shopTime)
 {
     duck[x].setName(name);
     duck[x].setBreed(breed);
@@ -39,39 +39,39 @@ void setDuckfunctions(Duckies* duck, int x, string name, string breed, string ha
 
 
 //getters
-string getShopName() const
+string Shop::getShopName() const
 {
     return this->shopName; 
 }
-string getLocation() const
+string Shop::getLocation() const
 {
     return this->location;
 }
-int getCapacity() const
+int Shop::getCapacity() const
 {
     return MAX_ARRAY;
 }
-int getNumOfDucks() const
+int Shop::getNumOfDucks() const
 {
     return this->numOfDucks; 
 }
-string setDuckname(Duckies* duck, int x) 
+string Shop::setDuckname(Duckies* duck, int x) 
 {
    return duck[x].getName();
 }
-string setDuckbreed(Duckies* duck, int x)
+string Shop::setDuckbreed(Duckies* duck, int x)
 {
    return duck[x].getBreed();
 }
-string setDuckHat(Duckies* duck, int x) 
+string Shop::setDuckHat(Duckies* duck, int x) 
 {
    return duck[x].getHat();
 }
-int setDuckage(Duckies* duck, int x) 
+int Shop::setDuckage(Duckies* duck, int x) 
 {
    return duck[x].getAge();
 }
-int setDuckST(Duckies* duck, int x)
+int Shop::setDuckST(Duckies* duck, int x)
 {
    return duck[x].getShopTime();
 }
@@ -90,11 +90,7 @@ void displayDuck(Duckies* thisShop, int i, int numDucks) //pointer to duck array
     }
 }   
 
-//function that gets the average time for all the ducks in the shop
-void shopStatus(int getShopTime())
-{
 
-}
 
 
 

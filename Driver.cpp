@@ -15,7 +15,6 @@ using namespace std;
 
 void addShop(Chain*, Shop*, Duckies*);
 void getCustomers(Chain*, Shop*);
-bool inputValidation(int&, int, int);
 void displayShop(Chain*);
 
 int main()
@@ -106,7 +105,13 @@ int main()
             choice = stoi(temp);
 
         //validate input
-        inputValidation(choice, 5, 1);
+        while(choice > 5 || choice < 1)
+        {
+            cout << "\nPlease choose a number within the options given";
+
+            getline(test, temp, '#');
+            choice = stoi(temp);
+        }
     
         
         //switch case to open menu for each user choice entered
@@ -119,7 +124,7 @@ int main()
 
             //tear down shop
             case 2:
-                destroyShop(arrOfShops);
+                destroyShop(arrOfShops, arrOfDucks, duck);
                 break;
 
             //display customers in shop
@@ -206,8 +211,8 @@ void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
 
         }
     }
-    
 
+    test.close();
 
     //add the new shop into the array
 }
@@ -231,12 +236,17 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
     {
         cout << "\nWhat shop do you want to display the current customers?" << endl;
         cout << "\nEnter 11 to return to main menu or 12 to add duck" << endl; 
-         //user pick action
+        //user pick action
         getline(test, temp, '#');
         element = stoi(temp);
 
         //validate input
-        inputValidation(element, 12, 1);
+        while(element >= 13 || element <=0 )
+        {
+            cout << "INVALID CHOICE! Please enter in a number 1-12" << endl; 
+            getline(test, temp, '#');
+            element = stoi(temp);
+        }
 
 
         if(element == 12) //adding a duck
@@ -247,6 +257,12 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
             cout << "How many Ducks are currently in shop " << shopsArray[tempShop-1].getNameChain(ducksArray, tempShop-1) << "?";
             getline(test, temp, '#');
             numDucks = stoi(temp);
+            while(numDucks >= 10 || numDucks < 0)
+            {   
+                cout << "INVALID CHOICE";
+                getline(test, temp, '#');
+                numDucks = stoi(temp);
+            }
             cout << "What is your ducks name?";
             getline(test, tempName, '#');
             cout << "What is " << tempName << " breed? ";
@@ -277,6 +293,8 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
         
     }while(element != 11);
     return; 
+
+    test.close();
 }
 
 
@@ -299,22 +317,18 @@ void shopStatus(Chain* array)
         element = stoi(temp); //allows user to choose what they want to access 
 
         //input validation
-<<<<<<< HEAD
         while(element >= 12 || element < 1 ) 
     { 
         cout << "\nPlease choose a number that matches an option we gave you.";
         cin >> element;
     }
-=======
-        inputValidation(element, 12, 1);
->>>>>>> ad93fbeab61941bbd229b983d211a4bff3c50646
         
     void displayShop(Shop* shopFunctions); //calls the display shop function 
 
 
     }while(element != 11);
-    test.close();
     
+    test.close();
 }
 
 
@@ -323,46 +337,17 @@ void shopStatus(Chain* array)
     Purpose: deletes dynamically allocated memory in the Chain class
     Return: void
 */
-void destroyShop(Chain* array) 
+void destroyShop(Chain* arrOfShops, Shop* arrOfDucks, Duckies* duck) 
 {
-    //delete the ducks in the shop and then the actual shop
-    for(int i = 0; i <= 0; i++)
-    {
-        /*for (int j = 0; j <= 0; j++)
-        {
-            delete [] array [i][j];
-        }*/
-        delete [] array [i];
-    }
+     //deletes the duck in the array
+    delete[] duck;
+    duck = NULL;    
     
-    delete[] array;
-    array = NULL;
-}
+    //deletes the array of ducks 
+    delete[] arrOfDucks;
+    arrOfDucks = NULL;
 
-
-<<<<<<< HEAD
-bool inputValidation(int input, int high, int low)
-=======
-/*
-    Function name: inputValidation
-    Purpose: validate input from file
-    Return: true if input is in the desired range; false if not
-*/
-bool inputValidation(int &input, int high, int low)
->>>>>>> ad93fbeab61941bbd229b983d211a4bff3c50646
-{
-    ifstream test;
-    string temp;
-
-    while((input > high) || (input < low))
-    {
-        cout << "\n\nSorry that was an invalid option; try again:\n";
-        getline(test, temp, '#');
-        input = stoi(temp);
-    }
-
-    if((input < high) && (input > low))
-        return true;
-    else
-        return false;
+    //deletes the array
+    delete[] arrOfShops;
+    arrOfShops = NULL;
 }
