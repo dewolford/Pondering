@@ -20,7 +20,7 @@ const int MAX_ARRAY = 10;
 class Chain
 {
     private:
-    Shop* = shopFunctions[MAX_ARRAY];
+    Chain shopFunctions[MAX_ARRAY];
     
     public:
     //contructors

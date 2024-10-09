@@ -15,7 +15,8 @@ using namespace std;
 
 void addShop(Chain*, Shop*, Duckies*);
 void getCustomers(Chain*, Shop*);
-bool inputValidation(int, int, int);
+bool inputValidation(int&, int, int);
+void displayShop(Chain*);
 
 int main()
 {
@@ -26,16 +27,23 @@ int main()
     Duckies* duck = new Duckies;
     int numShops = 0, numDucks, ageOfD, shopTime;
     string shopName, shopLocation, duckName, typeDuck, hatType;
+    ifstream test; 
+    string temp; 
+
+    test.open("test.txt");
 
     //ask user how many shops they want to start with
     cout << "\n\nStarting Up Portal For Pondering......\nPlease Start By Making Stores:";
     cout << "\n\nEnter in the number of shops you would like to start with (max of 10): " << endl;
-    cin >> numShops; //user entry for number of shops they want
+    getline(test, temp, '#');
+    numShops = stoi(temp);  //user entry for number of shops they want
 
     //user input validation loop to prevent user from entering an invalid number of shops
     while(numShops >=11 && numShops <= 0)
     {
         cout << "You are only allowed at most 10 shops, please enter a number in that range.\n" << endl;
+            getline(test, temp, '#');
+            numShops = stoi(temp);
     }
 
     cin.ignore(); 
@@ -44,13 +52,15 @@ int main()
     for(int i = 0; i < numShops; i++)
     {
         cout << "\nShop name: " << endl;
-        getline(cin, shopName);
+        getline(test, shopName, '#');
+
 
         cout << "\nShop Location: " << endl;
-        getline(cin, shopLocation);
+        getline(test, shopLocation, '#');
         
         cout << "\nHow many ducks are quacka-a-laking in the shop?" << endl;
-        cin >> numDucks;
+        getline(test, temp, '#');
+        numDucks = stoi(temp);
 
         cout << "\nPardon me sire, enter in the information for each ducky." << endl;
             
@@ -62,19 +72,21 @@ int main()
             cout << "\n\nEnter in infromation for duck " << j + 1 << " thanks." << endl;
             
             cout << "\nDuck name: " << endl;
-            getline(cin,duckName);
-
+            getline(test,duckName, '#');
+        
             cout << "Type/Breed of Duck: " << endl;
-            getline(cin, typeDuck);
+            getline(test, typeDuck, '#');
 
             cout << "Ducks favorite hat: " << endl; 
-            getline(cin, hatType);
+            getline(test, hatType, '#');
 
             cout << "How old is the duck: " << endl; 
-            cin >> ageOfD;
+            getline(test, temp, '#');
+            ageOfD = stoi(temp);
 
             cout << "How long does it take them to shop: " << endl;
-            cin >> shopTime; 
+            getline(test, temp, '#');
+            shopTime = stoi(temp);
 
             arrOfDucks = new Shop(j, duckName, typeDuck, hatType, ageOfD, shopTime); //dynamically allocated array for Shop class
         }
@@ -90,18 +102,12 @@ int main()
         cout << "\n1) Add a shop\n2) Tear down a shop\n3) Display Customers in a Shop" << endl;
         cout << "\n4) See Average Shopping Time\n5) Exit Portal";
         
-        cin >> choice;
+            getline(test, temp, '#');
+            choice = stoi(temp);
 
         //validate input
-        if(inputValidation(choice, 5, 1) == true)
-        {
-            void displayShop(Shop* shopFunctions); //calls the display shop function             
-        }
-        else
-        {
-            cout << "You entered an invalid option. Try again.";
-            cin >> choice;
-        }
+        inputValidation(choice, 5, 1);
+    
         
         //switch case to open menu for each user choice entered
         switch(choice) 
@@ -133,23 +139,31 @@ int main()
 }
 
 
-//function to allow user to create shop and enter in shop information -- called 
+/*
+    Function Name: addShop
+    Purpose: function to allow user to create shop and enter in shop information
+    Return: void
+*/
 void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
 {
     //variables
-    string nameShop, location, nameDuck, dBreed, hat;
+    string nameShop, location, nameDuck, dBreed, hat, temp;
     int ducksInStore, currentShops, dAge, shopTime;
+    ifstream test; 
 
+    test.open("test.txt");
     //user inputs
     cout << "How many Shops do you currrently own?(excluding shop that you are currently creating)";
-    cin >> currentShops;
+    getline(test, temp, '#');
+    currentShops = stoi(temp);
 
 
     //validation loop to prevent user from entering more than allowed number of shops
     while(currentShops >= 11 || currentShops <1) 
     { 
         cout << "\nImpossible Try Again!";
-        cin >> currentShops;
+        getline(test, temp, '#');
+        currentShops = stoi(temp);
     }
 
     //tells user that they have the max number of shops created
@@ -161,11 +175,12 @@ void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
     else //runs when the user can add more shops
     {
         cout << "\n\nWelcome to the add shop function!\n\nWhat is the name of the shop you would like to add?\n";
-        getline(cin, nameShop);
+        getline(test, nameShop, '#');
         cout << "\n\nGreat! Where is this shop located?\n";
-        getline(cin, location);
+        getline(test, location, '#');
         cout << "\n\nAwesome!! Now last question:\nHow many ducks are shopping at opening? (max of 10)\n";
-        cin >> ducksInStore; 
+        getline(test, temp, '#');
+        ducksInStore = stoi(temp);
         arrayOfShops[currentShops +1].setNameChain(arrayofDucks, nameShop, currentShops+1);
         arrayOfShops[currentShops +1].setLocationChain(arrayofDucks, location, currentShops+1);
         arrayOfShops[currentShops +1].setNumDuckChain(arrayofDucks, ducksInStore, currentShops+1);
@@ -176,15 +191,17 @@ void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
         {
             cout << "*******DUCK " << x+1 << "*******";
             cout << "What is their name?"; 
-            getline(cin, nameDuck); 
+            getline(test, nameDuck, '#'); 
             cout << "What is their breed?";
-            getline(cin, dBreed); 
+            getline(test, dBreed, '#'); 
             cout << "What is " << nameDuck << "favorite hat?";
-            getline(cin, hat);
+            getline(test, hat, '#');
             cout << "How old is " << nameDuck << "?";
-            cin >> dAge;
+            getline(test, temp, '#');
+            dAge = stoi(temp);
             cout << "How long does it take them to shop?";
-            cin >> shopTime;
+            getline(test, temp, '#');
+            shopTime = stoi(temp);
             arrayofDucks->setDuckfunctions(duck, x, nameDuck, dBreed, hat, dAge, shopTime);
 
         }
@@ -195,49 +212,52 @@ void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
     //add the new shop into the array
 }
 
+
+/*
+    Function Name: getCustomers
+    Purpose: display current customers in a shop
+    Return: void
+*/
 void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display ducks 
 {
     int element, tempShop, numDucks, tempAge, tempST;
-    string tempName, tempHat, tempBreed; 
+    string tempName, tempHat, tempBreed, temp; 
+    ifstream test;
+
+    test.open("test.txt");
 
     do //do while loop that runs only when user doesn't want to go back to the main menu
     {
         cout << "\nWhat shop do you want to display the current customers?" << endl;
         cout << "\nEnter 11 to return to main menu or 12 to add duck" << endl; 
-        cin >> element; //user pick action
+         //user pick action
+        getline(test, temp, '#');
+        element = stoi(temp);
 
         //validate input
-        if(inputValidation(element, 12, 1) == true)
-        {
-            void displayShop(Shop* shopFunctions); //calls the display shop function             
-        }
-        else
-        {
-            cout << "You entered an invalid option. Try again.";
-            cin >> element;
-        }
+        inputValidation(element, 12, 1);
 
-        while(element <= 0 && element > 12) //user input validation statement to not allow them to enter in an invalid number
-        {
-            cout << "Number entered is invalid. Please enter in a number that matches one of the given options." << endl;
-        }
 
         if(element == 12) //adding a duck
         {
             cout << "what shop would you like to add a duck to?";
-            cin >> tempShop;
+            getline(test, temp, '#');
+            tempShop = stoi(temp);
             cout << "How many Ducks are currently in shop " << shopsArray[tempShop-1].getNameChain(ducksArray, tempShop-1) << "?";
-            cin >> numDucks;
+            getline(test, temp, '#');
+            numDucks = stoi(temp);
             cout << "What is your ducks name?";
-            getline(cin, tempName);
+            getline(test, tempName, '#');
             cout << "What is " << tempName << " breed? ";
-            getline(cin, tempBreed);
+            getline(test, tempBreed, '#');
             cout << "What is " << tempName << " favorite hat? ";
-            getline(cin, tempHat);
+            getline(test, tempHat, '#');
             cout << "What is " << tempName << " age? ";
-            cin >> tempAge;
+            getline(test, temp, '#');
+            tempAge = stoi(temp);
             cout << "How long will it take them to shop? ";
-            cin >> tempST;
+            getline(test, temp, '#');
+            tempST = stoi(temp);
 
              ducksArray->setDuckfunctions(duck, tempShop, tempName, tempBreed, tempHat, tempAge, tempST);
 
@@ -258,26 +278,42 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
     return; 
 }
 
-//display attributes of shop and average time 
-Chain shopStatus(Chain* array) 
+
+/*
+    Function Name: shopStatus
+    Purpose: display attributes of shop and average time
+    Return: void
+*/
+void shopStatus(Chain* array) 
 {   
+    ifstream test;
+    string temp;
     int element; //lets user pick what shop they want to see data from
 
+    test.open("test.txt");
     do
     {
         cout << "\nWhat shop would you like to access?\nTo return to menu enter 11 or enter 12 to add a shop:";
-        cin >> element; //allows user to choose what they want to access 
+        getline(test, temp, '#');
+        element = stoi(temp); //allows user to choose what they want to access 
 
         //input validation
+        inputValidation(element, 12, 1);
         
         void displayShop(Shop* shopFunctions); //calls the display shop function 
 
 
     }while(element != 11);
+    test.close();
     
 }
 
-//deletes dynamically allocated memory in the Chain class -- called in menu to allow user to destroy shops
+
+/*
+    Function Name: destroyShop
+    Purpose: deletes dynamically allocated memory in the Chain class
+    Return: void
+*/
 void destroyShop(Chain* array) 
 {
     //delete the ducks in the shop and then the actual shop
@@ -289,14 +325,24 @@ void destroyShop(Chain* array)
     ~Shop();
 }
 
-bool inputValidation(int input, int high, int low)
+
+/*
+    Function name: inputValidation
+    Purpose: validate input from file
+    Return: true if input is in the desired range; false if not
+*/
+bool inputValidation(int &input, int high, int low)
 {
+    ifstream test;
+    string temp;
+
     while((input > high) || (input < low))
     {
-
         cout << "\n\nSorry that was an invalid option; try again:\n";
-        cin >> input;
+        getline(test, temp, '#');
+        input = stoi(temp);
     }
+
     if((input < high) && (input > low))
         return true;
     else
