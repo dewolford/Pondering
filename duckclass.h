@@ -7,8 +7,7 @@
 #include<iomanip> 
 #include<iostream> 
 
-#include "Shop.h"
-#include "Chain.h"
+
 using namespace std;
 
 #ifndef duckclass_H

@@ -76,8 +76,7 @@ int Shop::setDuckST(Duckies* duck, int x)
    return duck[x].getShopTime();
 }
 
-
-void displayDuck(Duckies* thisShop, int i, int numDucks) //pointer to duck array
+void Shop::displayDuck(Duckies* thisShop, int i, int numDucks) //pointer to duck array
 {
     for(int x =0; x<numDucks-1; x++)
     {
@@ -89,6 +88,11 @@ void displayDuck(Duckies* thisShop, int i, int numDucks) //pointer to duck array
         cout << setw(15) << left << "Customer Shop Time:" << right << thisShop[i].getShopTime() << endl; 
     }
 }   
+
+
+
+
+
 
 
 

@@ -2,9 +2,8 @@
 *      Name: Driver.cpp                                    *
 *    Purpose: The main executable program for Pondering  
 ************************************************************/
-
-#include "Chain.h"
 #include "Shop.h"
+#include "Chain.h"
 #include "duckClass.h"
 
 #include <iostream>
@@ -14,7 +13,8 @@
 using namespace std;
 
 void addShop(Chain*, Shop*, Duckies*);
-void getCustomers(Chain*, Shop*);
+void getCustomers(Chain*, Shop*, Duckies*);
+void destroyShop(Chain*, Shop*, Duckies*); 
 void displayShop(Chain*);
 
 int main()
@@ -287,7 +287,7 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
             cout << "\n\nThe number of ducks in the shop right now is " << numDucks;
             for(int x = 0; x < numDucks; x++)
             {
-                ducksArray[element - 1].displayDuck(duck, element);
+                shopsArray[element - 1].getShop(x)->displayDuck(duck, element, numDucks);
             }
         }
         
@@ -351,7 +351,15 @@ void destroyShop(Chain* arrOfShops, Shop* arrOfDucks, Duckies* duck)
     delete[] arrOfShops;
     arrOfShops = NULL;
 }
-<<<<<<< HEAD
+
+void displayShop(Duckies*, int) { 
+    cout << " TODO BOZO: " << endl; 
+}
+
+void displayShop(Chain* MAMA_IM_A_CRIMINAL) { 
+    cout << " TODO BOZO: " << endl; 
+}
+
 
 
 bool inputValidation(int input, int high, int low)
@@ -371,5 +379,3 @@ bool inputValidation(int input, int high, int low)
     else
         return false;
 }
-=======
->>>>>>> 43ab6f6d4c2516c67fadcb7fe70e038eaa7e8372

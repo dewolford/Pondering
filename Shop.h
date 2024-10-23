@@ -11,10 +11,9 @@
 #include<iostream> 
 
 #include "duckclass.h"
-#include "Chain.h"
 
 using namespace std;
-
+const int MAX_ARRAY = 10;
 
 
 class Shop //class declaration/definition
@@ -86,7 +85,7 @@ string setDuckbreed(Duckies* duck, int x);
 string setDuckHat(Duckies* duck, int x);
 int setDuckage(Duckies* duck, int x);
 int setDuckST(Duckies* duck, int x);
-void displayDuck(Duckies* thisShop, int i);
+void displayDuck(Duckies* thisShop, int i, int numDucks);
 
 };
 

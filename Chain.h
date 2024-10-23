@@ -15,7 +15,6 @@
 
 using namespace std;
 
-const int MAX_ARRAY = 10;
 
 class Chain
 {
@@ -40,6 +39,9 @@ class Chain
     void setNumDuckChain(Shop*, int, int);
 
     //getters
+    Shop* getShop(int a) { 
+        return shopFunctions[a]; 
+    }
     string getNameChain(Shop*, int) const;
     string getLocationChain(Shop*, int) const;
     int getCapacityChain(Shop*, int) const;
