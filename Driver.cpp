@@ -45,7 +45,6 @@ int main()
             numShops = stoi(temp);
     }
 
-    cin.ignore(); 
 
     //for loop to enter in data for num of shops
     for(int i = 0; i < numShops; i++)
@@ -352,30 +351,17 @@ void destroyShop(Chain* arrOfShops, Shop* arrOfDucks, Duckies* duck)
     arrOfShops = NULL;
 }
 
-void displayShop(Duckies*, int) { 
-    cout << " TODO BOZO: " << endl; 
-}
-
-void displayShop(Chain* MAMA_IM_A_CRIMINAL) { 
-    cout << " TODO BOZO: " << endl; 
-}
-
-
-
-bool inputValidation(int input, int high, int low)
-{
-    ifstream test;
-    string temp;
-
-    while((input > high) || (input < low))
+void displayShop(Duckies* ducks, int x) 
+{ 
+    for(int i =0 ; i< x; i++ )
     {
-        cout << "\n\nSorry that was an invalid option; try again:\n";
-        getline(test, temp, '#');
-        input = stoi(temp);
+       cout << "\nName: " << ducks.getName()
     }
-
-    if((input < high) && (input > low))
-        return true;
-    else
-        return false;
 }
+
+void displayShop(Chain* MAMA_IM_A_CRIMINAL) 
+{ 
+    cout << " TODO BOZO: " << endl; 
+}
+
+

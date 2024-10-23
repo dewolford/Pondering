@@ -22,15 +22,31 @@ class Chain
     Shop* shopFunctions[MAX_ARRAY];
     
     public:
-    //contructors
-    Chain(); //default
-    Chain(int, string, string, int, int); //overloaded
-    
-    //deconstructor
+    //constructors
+ Chain() //default
+{
+    for(int x = 0; x < MAX_ARRAY; x++)
+    {
+        // shopFunctions[x] = blank
+        shopFunctions[x]->setShopName(" ");
+        shopFunctions[x]->settLocation(" ");
+        shopFunctions[x]->setNumOfDucks(0);
+        shopFunctions[x]->setCapacity(MAX_ARRAY);
+    }
+}
+Chain(int i, string name, string location, int numD, int cap) //overloaded
+{
+    shopFunctions[i]->setShopName(name);
+    shopFunctions[i]->settLocation(location);
+    shopFunctions[i]->setNumOfDucks(numD);
+    shopFunctions[i]->setCapacity(cap);
+
+}
     ~Chain()
     {
         delete [] shopFunctions[MAX_ARRAY];
     }
+
 
     //setters
     void setNameChain(Shop*, string, int);

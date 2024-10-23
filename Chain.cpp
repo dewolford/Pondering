@@ -11,36 +11,8 @@
 #include <fstream>
 #include <iomanip> 
 
-//constructors
-Chain::Chain() //default
-{
-    for(int x = 0; x < MAX_ARRAY; x++)
-    {
-        // shopFunctions[x] = blank
-        shopFunctions[x]->setShopName(" ");
-        shopFunctions[x]->settLocation(" ");
-        shopFunctions[x]->setNumOfDucks(0);
-        shopFunctions[x]->setCapacity(MAX_ARRAY);
-    }
-}
 
-Chain::Chain(int i, string name, string location, int numD, int cap) //overloaded
-{
-    shopFunctions[i]->setShopName(name);
-    shopFunctions[i]->settLocation(location);
-    shopFunctions[i]->setNumOfDucks(numD);
-    shopFunctions[i]->setCapacity(cap);
-
-}
-
-// //destructor
-// Chain::~Chain()
-// {
-//     //delete something; 
-
-//     cout << "\n\nDeleted";
-// }
-
+    
 //setters
 void Chain::setNameChain(Shop* shop, string name, int x)
 {
