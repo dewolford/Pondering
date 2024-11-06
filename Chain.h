@@ -6,66 +6,53 @@
 #ifndef CHAIN_H
 #define CHAIN_H
 
-#include <iostream>
-#include <string>
-#include <fstream>
-
-#include "duckclass.h"
 #include "Shop.h"
-
-using namespace std;
-
+#include "duckclass.h"
+#include <iostream> 
+using namespace std; 
 
 class Chain
 {
     private:
-    Shop* shopFunctions[MAX_ARRAY];
-    
-    public:
-    //constructors
- Chain() //default
-{
-    for(int x = 0; x < MAX_ARRAY; x++)
-    {
-        // shopFunctions[x] = blank
-        shopFunctions[x]->setShopName(" ");
-        shopFunctions[x]->settLocation(" ");
-        shopFunctions[x]->setNumOfDucks(0);
-        shopFunctions[x]->setCapacity(MAX_ARRAY);
-    }
-}
-Chain(int i, string name, string location, int numD, int cap) //overloaded
-{
-    shopFunctions[i]->setShopName(name);
-    shopFunctions[i]->settLocation(location);
-    shopFunctions[i]->setNumOfDucks(numD);
-    shopFunctions[i]->setCapacity(cap);
+    Shop shopFunctions[MAX_ARRAY];
 
-}
+    public:
+    Chain()
+    {
+        for(int x = 0; x<MAX_ARRAY; x++)
+        {
+            this->shopFunctions[x].settLocation(" ");
+            this->shopFunctions[x].setShopName(" ");
+            this->shopFunctions[x].setNumOfDucks(0);
+        }
+        
+    }
+    Chain(int i, string location, string name, int numDucks)
+    {
+        shopFunctions[i].settLocation(location);
+        shopFunctions[i].setShopName(name);
+        shopFunctions[i].setNumOfDucks(numDucks);
+    }
     ~Chain()
     {
-        delete [] shopFunctions[MAX_ARRAY];
+        cout << "\n\nThe Chain has been closed.";
     }
-
 
     //setters
-    void setNameChain(Shop*, string, int);
-    void setLocationChain(Shop*, string, int);
-    void setCapacityChain(Shop*, int, int);
-    void setNumDuckChain(Shop*, int, int);
+    void setShopFunctions(Shop* shop, int x, int i, string name, string location, int numDucks, Duckies* duck, string nameD, string breed, string hat, int age, int time);
 
     //getters
-    Shop* getShop(int a) { 
-        return shopFunctions[a]; 
-    }
-    string getNameChain(Shop*, int) const;
-    string getLocationChain(Shop*, int) const;
-    int getCapacityChain(Shop*, int) const;
-    int getNumDuckChain(Shop*, int) const;
+    string getShopName(Shop* shop, int x) const;
+    string getLocation(Shop* shop, int x) const;
+    int getCapacity(Shop* shop, int x) const;
+    int getNumOfDucks(Shop* shop, int x) const;
+    string getDuckName(Shop* shop, int x, Duckies* duck, int i) const;
+    string getDuckBreed(Shop* shop, int x, Duckies* duck, int i) const;
+    string getDuckHat(Shop* shop, int x, Duckies* duck, int i) const;
+    int getDuckAge(Shop* shop, int x, Duckies* duck, int i) const;
+    int setDST(Shop* shop, int x, Duckies* duck, int i) const;
+
     
-
-    void displayShop(Shop*);
-
-};
+}; 
 
 #endif

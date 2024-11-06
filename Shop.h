@@ -1,7 +1,7 @@
 /************************
  * Name:Shop.h
  * Purpose: hold class and functions for object duckies
- */
+ **********************/
 
 #ifndef Shop_h
 #define Shop_h

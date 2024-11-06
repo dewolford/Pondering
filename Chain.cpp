@@ -6,59 +6,61 @@
 #include "Chain.h"
 #include "Shop.h"
 #include "duckclass.h"
+
+#include "Chain.h"
+#include "Shop.h"
+#include "duckclass.h"
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <iomanip> 
+using namespace std;
 
-
-    
 //setters
-void Chain::setNameChain(Shop* shop, string name, int x)
+void Chain::setShopFunctions(Shop* shop, int x, int i, string name, string location, int numDucks, Duckies* duck, string nameD, string breed, string hat, int age, int time)
 {
     shop[x].setShopName(name);
-}
-void Chain::setLocationChain(Shop* shop, string location, int x)
-{
     shop[x].settLocation(location);
+    shop[x].setNumOfDucks(numDucks);
+    shop[x].setDuckfunctions(duck, i, nameD, breed, hat, age, time);
 }
-void Chain::setCapacityChain(Shop* shop, int capacity, int x)
-{
-    shop[x].setCapacity(capacity);
-}
-void Chain::setNumDuckChain(Shop* shop, int ducks, int x)
-{
-    shop[x].setNumOfDucks(ducks);
-}
-
 //getters
-string Chain::getNameChain(Shop* shop, int x) const
-{   
-    return shop[x].getShopName();
-}
-string Chain::getLocationChain(Shop* shop, int x) const
-{
-    return shop[x].getLocation();
-}
-int Chain::getCapacityChain(Shop* shop, int x) const
-{
-    return shop[x].getCapacity();
-}
-int Chain::getNumDuckChain(Shop* shop, int x) const
-{
-    return shop[x].getNumOfDucks();
-}
-
-
-//displays shop informat
-void displayShop(Shop* shopFunctions)
-{
-    //print out shops
-    for(int x = 0; x < MAX_ARRAY; x++)
+    string Chain::getShopName(Shop* shop, int x) const
     {
-        cout << setw(25) << left << "Shop Name: " << setw(10) << right << shopFunctions[x].getShopName() << endl;
-        cout << setw(25) << left << "Shop Location: " << setw(10) << right << shopFunctions[x].getLocation() << endl;
-        cout << setw(25) << left << "Current Number of Ducks in Store: " << setw(10) << right << shopFunctions[x].getNumOfDucks() << endl;
-        cout << setw(25) << left << "Capacity of the Store: " << setw(10) << right <<shopFunctions[x].getCapacity() << endl;
+        return shop[x].getShopName();
     }
-}
+    string Chain::getLocation(Shop* shop, int x) const
+    {
+        return shop[x].getLocation();
+    }
+    int Chain::getCapacity(Shop* shop, int x) const
+    {
+        return shop[x].getCapacity();
+    }
+    int Chain::getNumOfDucks(Shop* shop, int x) const
+    {
+        return shop[x].getNumOfDucks();
+    }
+    string Chain::getDuckName(Shop* shop, int x, Duckies* duck, int i) const
+    {
+        return shop[x].setDuckname(duck, i);
+    }
+    string Chain::getDuckBreed(Shop* shop, int x) const
+    {
+        return shop[x].
+    }
+    string Chain::getDuckHat(Shop* shop, int x) const
+    {
+
+    }
+    int Chain::getDuckAge(Shop* shop, int x) const
+    {
+
+    }
+    int Chain::setDST(Shop* shop, int x) const
+    {
+
+    }
+
+//display shop
+
