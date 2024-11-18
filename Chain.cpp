@@ -17,12 +17,11 @@
 using namespace std;
 
 //setters
-void Chain::setShopFunctions(Shop* shop, int x, int i, string name, string location, int numDucks, Duckies* duck, string nameD, string breed, string hat, int age, int time)
+void Chain::setShopFunctions(Shop* shop, int x, string name, string location, int numDucks)
 {
     shop[x].setShopName(name);
     shop[x].settLocation(location);
     shop[x].setNumOfDucks(numDucks);
-    shop[x].setDuckfunctions(duck, i, nameD, breed, hat, age, time);
 }
 //getters
     string Chain::getShopName(Shop* shop, int x) const
@@ -45,22 +44,28 @@ void Chain::setShopFunctions(Shop* shop, int x, int i, string name, string locat
     {
         return shop[x].setDuckname(duck, i);
     }
-    string Chain::getDuckBreed(Shop* shop, int x) const
+    string Chain::getDuckBreed(Shop* shop, int x, Duckies* duck, int i) const
     {
-        return shop[x].
+        return shop[x].setDuckbreed(duck, i);
     }
-    string Chain::getDuckHat(Shop* shop, int x) const
+    string Chain::getDuckHat(Shop* shop, int x, Duckies* duck, int i) const
     {
-
+        return shop[x].setDuckHat(duck, i); 
     }
-    int Chain::getDuckAge(Shop* shop, int x) const
+    int Chain::getDuckAge(Shop* shop, int x, Duckies* duck, int i) const
     {
-
+        return shop[x].setDuckage(duck, i); 
     }
-    int Chain::setDST(Shop* shop, int x) const
+    int Chain::setDST(Shop* shop, int x, Duckies* duck, int i) const
     {
-
+        return shop[x].setDuckST(duck, i); 
     }
 
 //display shop
+
+void displayDuck(Duckies* thisShop, int i, int numDucks, Shop* shop, int x)
+{
+    shop[x].displayDuck(thisShop, i, numDucks);
+}
+
 

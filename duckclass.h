@@ -1,4 +1,4 @@
-/************************
+/*/************************
  * Name:    duckclass.h
  * Purpose: hold class and functions for object duckies
  ************************/

@@ -39,7 +39,7 @@ class Chain
     }
 
     //setters
-    void setShopFunctions(Shop* shop, int x, int i, string name, string location, int numDucks, Duckies* duck, string nameD, string breed, string hat, int age, int time);
+    void setShopFunctions(Shop* shop, int x, string name, string location, int numDucks);
 
     //getters
     string getShopName(Shop* shop, int x) const;
@@ -52,6 +52,7 @@ class Chain
     int getDuckAge(Shop* shop, int x, Duckies* duck, int i) const;
     int setDST(Shop* shop, int x, Duckies* duck, int i) const;
 
+    void displayDuck(Duckies* thisShop, int i, int numDucks, Shop* shop, int x);
     
 }; 
 

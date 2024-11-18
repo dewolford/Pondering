@@ -62,7 +62,7 @@ int main()
 
         cout << "\nPardon me sire, enter in the information for each ducky." << endl;
             
-        arrOfShops = new Chain(i, shopName, shopLocation, numDucks, MAX_ARRAY); //dynamically allocated array for Chain class
+        arrOfShops = new Chain(i, shopLocation, shopName, numDucks); //dynamically allocated array for Chain class
 
         //for loop to enter in user data about ducks until each duck has information 
         for(int j = 0; j < numDucks; j++)
@@ -185,9 +185,7 @@ void addShop(Chain* arrayOfShops, Shop* arrayofDucks, Duckies* duck)
         cout << "\n\nAwesome!! Now last question:\nHow many ducks are shopping at opening? (max of 10)\n";
         getline(test, temp, '#');
         ducksInStore = stoi(temp);
-        arrayOfShops[currentShops +1].setNameChain(arrayofDucks, nameShop, currentShops+1);
-        arrayOfShops[currentShops +1].setLocationChain(arrayofDucks, location, currentShops+1);
-        arrayOfShops[currentShops +1].setNumDuckChain(arrayofDucks, ducksInStore, currentShops+1);
+        arrayOfShops[currentShops +1].setShopFunctions(arrayofDucks, currentShops+1, nameShop, location, ducksInStore); 
 
             cout << "What ducks are currently shopping?\nPlease enter the information accordingly below" ;
             cout << "***********************************" << endl;
@@ -253,7 +251,7 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
             cout << "what shop would you like to add a duck to?";
             getline(test, temp, '#');
             tempShop = stoi(temp);
-            cout << "How many Ducks are currently in shop " << shopsArray[tempShop-1].getNameChain(ducksArray, tempShop-1) << "?";
+            cout << "How many Ducks are currently in shop " << shopsArray[tempShop-1].getShopName(ducksArray, element) << "?";
             getline(test, temp, '#');
             numDucks = stoi(temp);
             while(numDucks >= 10 || numDucks < 0)
@@ -282,11 +280,11 @@ void getCustomers(Chain* shopsArray, Shop* ducksArray, Duckies* duck) // display
         else if ((element < 11) && (element > 0))
         {
             //display duckss
-            int numDucks = shopsArray[element - 1].getNumDuckChain(ducksArray, element);
+            int numDucks = shopsArray[element - 1].getNumOfDucks(ducksArray, element);
             cout << "\n\nThe number of ducks in the shop right now is " << numDucks;
             for(int x = 0; x < numDucks; x++)
             {
-                shopsArray[element - 1].getShop(x)->displayDuck(duck, element, numDucks);
+                shopsArray[element-1].displayDuck(duck, x, numDucks, ducksArray, element-1);
             }
         }
         
@@ -350,18 +348,3 @@ void destroyShop(Chain* arrOfShops, Shop* arrOfDucks, Duckies* duck)
     delete[] arrOfShops;
     arrOfShops = NULL;
 }
-
-void displayShop(Duckies* ducks, int x) 
-{ 
-    for(int i =0 ; i< x; i++ )
-    {
-       cout << "\nName: " << ducks.getName()
-    }
-}
-
-void displayShop(Chain* MAMA_IM_A_CRIMINAL) 
-{ 
-    cout << " TODO BOZO: " << endl; 
-}
-
-
